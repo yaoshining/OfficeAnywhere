@@ -1,0 +1,77 @@
+@color: #FFF;
+@bgColor: #F00;
+@contentBgColor: #ffbe83;
+body {
+  background: @color;
+  font-family: 'Open Sans';
+}
+.pane-north,.pane-south {
+  background: @bgColor;
+}
+.pane-center {
+  background: @contentBgColor;
+}
+#banner {
+  height: 70px;
+}
+#menuNav {
+  height: 45px;
+}
+#navigator {
+  height: 70px;
+}
+#menuTab li {
+  margin-right: 10px;
+}
+#startMenu {
+  background-color: #ffff00;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  width: 60px;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.menu button{
+  margin:0 10px;
+  background-color: #ffff00;
+  border-color: #ffff00;
+  border-radius: 0;
+}
+.menu {
+  position: relative;
+  display: inline-block;
+  bottom: 0;
+  position: absolute
+}
+#menuBar {
+  background: #ffff00;
+  height: 25px;
+}
+#menuBar ul {
+  padding: 0;
+  margin: 0;
+}
+#menuBar li {
+  float: left;
+}
+#shortcutPane ul{
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0 100px;
+}
+#shortcutPane li{
+  list-style: none;
+  float: left;
+  margin: 20px 30px;
+}
+#shortcutPane li div {
+  width: 120px;
+  height: 120px;
+  background-color: red;
+}
