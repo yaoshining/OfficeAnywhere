@@ -1,9 +1,15 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['modules/Center' , 'controllers/listCtrl'] , function (center) {
-    return center.config(['$routeProvider' , function ($routeProvider) {
-        $routeProvider.when('/' , {controller: 'listCtrl' , templateUrl: 'js/app/templates/Center.html'});
+define(['modules/App' , 'controllers/northCtrl'] , function (app) {
+    return app.config(['$routeProvider' , function ($routeProvider) {
+//        $routeProvider.when('/' , {controller: 'northCtrl' ,templateUrl: 'js/app/templates/North.html' });
+//        $routeProvider.when('/:module' , {
+//            controller: 'northCtrl' ,
+//            templateUrl: function(){
+//                return 'js/app/templates/North.html';
+//            }
+//        });
     }]);
 
 });

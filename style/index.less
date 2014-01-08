@@ -1,6 +1,7 @@
 @color: #FFF;
-@bgColor: #F00;
+@bgColor: #c94d4b;
 @contentBgColor: #ffbe83;
+@menuColor: #d7dee3;
 body {
   background: @color;
   font-family: 'Open Sans';
@@ -25,7 +26,7 @@ body {
   margin-right: 10px;
 }
 #startMenu {
-  background-color: #ffff00;
+  background-color: @menuColor;
   display: inline-block;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -37,20 +38,21 @@ body {
   margin-left: 10px;
   margin-top: 10px;
 }
-.menu button{
+.menu a{
   margin:0 10px;
-  background-color: #ffff00;
-  border-color: #ffff00;
+  width: 80px;
+  background-color: @menuColor;
+  border-color: @menuColor;
   border-radius: 0;
 }
 .menu {
-  position: relative;
   display: inline-block;
   bottom: 0;
+  left: 70px;
   position: absolute
 }
 #menuBar {
-  background: #ffff00;
+  background: @menuColor;
   height: 25px;
 }
 #menuBar ul {
@@ -64,6 +66,7 @@ body {
   float: right;
   position: relative;
   left: -50%;
+  top: 50%;
   text-align: left;
 }
 .shortcutPane ul{
@@ -95,6 +98,10 @@ body {
   display: inline-block;
   background: url("../images/sprite_main_png.png") no-repeat -140px -5px;
   margin-top: 30px;
+  z-index: 2;
+}
+.indicator_wrapper a{
+  cursor: hand;
 }
 .indicator_container {
   display: inline-block;

@@ -3,18 +3,23 @@
 <head>
     <title></title>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <script style="text/javascript">
+        window.onload = function(){
+            document.body.style.height = document.documentElement.clientHeight+"px";
+        }
+    </script>
 </head>
-<body style="background: red;padding: 0;margin: 0">
-    <div id="loginPanel" style="height: 230px;background-color: yellow;width: 430px;margin: 0 auto;margin-top: 200px;">
+<body style="background: red;padding: 0;margin: 0;position: relative;">
+    <div id="loginPanel" style="height: 230px;background-color: yellow;width: 430px;position:absolute;left: 50%;margin-left: -215px;top: 50%;margin-top: -115px">
         <div style="height: 60px;background-color: blue">
             OfficeAnywhere政务平台
         </div>
         <div style="position: relative;">
             <div style="right: 20px;top: 40px;position: absolute;">
-                <form>
+                <form action="index.html">
                     <input type="text" placeholder="用户名:" /><br />
                     <input type="text" placeholder="密码:" /><br />
-                    <input type="submit" value="登陆" onclick="alert('登陆成功')" />
+                    <input type="submit" value="登陆" />
                 </form>
             </div>
         </div>

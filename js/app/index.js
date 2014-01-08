@@ -23,4 +23,7 @@ var layoutSettings = {
 $(function(){
     $('body').layout(layoutSettings);
     $('#tabs').tabs();
+    $(".indicator_container a").on("click",function(){
+        var index = $(this).index()+1;
+    });
 });

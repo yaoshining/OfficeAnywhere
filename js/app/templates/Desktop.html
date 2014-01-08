@@ -1,0 +1,33 @@
+<div>
+    <div style="height: 100px;text-align: center;">
+        <div class="indicator_wrapper">
+            <div id="indicatorContainer" class="indicator_container">
+                <a class="indicator indicator_1" href="javascript:void(0)" ng-click="page=1">
+                    <span class="indicator_icon indicator_icon1"></span>
+                </a>
+                <a class="indicator indicator_2" href="javascript:void(0)" ng-click="page=2">
+                    <span class="indicator_icon indicator_icon2"></span>
+                </a>
+                <a class="indicator indicator_3" href="javascript:void(0)" ng-click="page=3">
+                    <span class="indicator_icon indicator_icon3"></span>
+                </a>
+                <a class="indicator indicator_4" href="javascript:void(0)" ng-click="page=4">
+                    <span class="indicator_icon indicator_icon4"></span>
+                </a>
+                <a class="indicator indicator_5" href="javascript:void(0)" ng-click="page=5">
+                    <span class="indicator_icon indicator_icon5"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div style="display: inline-block">
+        <div class="shortcutPane">
+            <ul>
+                <li ng-repeat="item in items[page-1].shortcuts" class="repeated-item" ng-click="openTab(item)">
+                    <div>{{ item.name }}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

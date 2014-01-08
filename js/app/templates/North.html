@@ -1,9 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div id="banner">
 
-</body>
-</html>
+</div>
+<div id="navigator">
+    <div id="menuNav" style="display: inline-block;width: 100%;height: 45px;position: relative;">
+        <div id="startMenu" data-dropdown="#dropdown-1"><i class="fa fa-home" style="font-size: 20px"></i>菜单</div>
+        <div class="menu">
+            <a type="button" class="btn btn-default" ng-repeat="menu in menus" ng-href="#/{{menu.url}}">{{ menu.name }}</a>
+            <!--<a type="button" class="btn btn-default" ng-href="/OfficeAnywhere/#/Personal">个人事务</a>
+            <a type="button" class="btn btn-default">个人事务</a>-->
+        </div>
+        <div style="position: absolute;right: 0px;display: inline-block;height: 100%;line-height: 45px;">
+            <i class="fa fa-key" style="font-size: 20px;color: #ffffff"></i><span class="glyphicon glyphicon-cog" style="font-size: 20px;color: #ffffff"></span>
+        </div>
+    </div>
+    <div id="menuBar">
+        <ul style="list-style: none">
+            <li>已完成|</li>
+            <li>已完成|</li>
+            <li>已完成|</li>
+            <li>已完成|</li>
+        </ul>
+    </div>
+</div>
+<div id="dropdown-1" class="dropdown dropdown-tip" ng-init="dropdownMenus=[{name:'工作',url:'Task'},{name:'个人事务',url:'Personal'}]">
+    <div class="dropdown-panel">
+        <ul>
+            <li ng-repeat="menu in dropdownMenus" ng-click="newTab(menu)">{{ menu.name }}</li>
+        </ul>
+    </div>
+</div>

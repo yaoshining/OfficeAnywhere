@@ -12964,7 +12964,7 @@ function $SceDelegateProvider() {
 /* jshint maxlen: 100 */
 
 function $SceProvider() {
-  var enabled = true;
+  var enabled = false;
 
   /**
    * @ngdoc function
