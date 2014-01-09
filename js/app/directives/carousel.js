@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-8.
  */
 define(['modules/App','unslider','factories/Item'],function(app){
-    app.directive('myCustomer',function(Item,$timeout){
+    app.directive('carousel',function(Item,$timeout){
         return {
             restrict: "A",
             link: function(scope,element){
@@ -16,26 +16,31 @@ define(['modules/App','unslider','factories/Item'],function(app){
                         keys: true
                     }).css("visibility","visible");
                     var data = slidey.data('unslider');
-                    console.log(data);
                     scope.changePage = function(pageNum){
                         data.to(pageNum);
                     }
+                    element.on("mousedown",function(event){
+                        var ox = event.pageX;
+                        var oy = event.pageY;
+                        var left = parseFloat($(this).find("ul").css("left"));
+                        $("body").on("mousemove",function(e){
+                            var dx = e.pageX-ox;
+                            element.find("ul:first").css("left",(left+dx)/element.width()*100+"%");
+                        }).one("mouseup",function(e){
+                            var predictPage = -Math.round(parseFloat(element.find("ul:first").css("left"))/element.width());
+                            if(predictPage<0){
+                                predictPage=0;
+                            }
+                            if(predictPage>4){
+                                predictPage=4
+                            }
+                            scope.changePage(predictPage);
+                            $(this).off("mousemove");
+                        });
+                    });
                 },500);
             },
-            controller: function($scope,$element,$rootScope){
-                var items = Item.query(function(){
-//            console.log($rootElement);
-                    $scope.items = items;
-                });
-                $rootScope.$on("$viewContentLoaded",function(){
-//                    alert("success");
-                });
-                $scope.page = 1;
-                $scope.openTab = function(item){
-                    $("#north").scope().newTab(item);
-                }
-                $scope.name= "czxczczxc";
-            }
+            controller: 'listCtrl'
         };
     });
 });

@@ -5,7 +5,7 @@ define(['modules/App' , 'controllers/listCtrl','controllers/northCtrl','directiv
     return app.config(['$routeProvider' , function ($routeProvider) {
         $routeProvider.when('/' , {controller: 'listCtrl' ,templateUrl: 'js/app/templates/Desktop.html'});
         $routeProvider.when('/:module' , {
-            controller: 'listCtrl' ,
+//            controller: 'listCtrl' ,
             templateUrl: function(routeParams){
                 return 'js/app/templates/'+routeParams.module+'.html';
             }

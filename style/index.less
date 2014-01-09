@@ -2,9 +2,14 @@
 @bgColor: #c94d4b;
 @contentBgColor: #ffbe83;
 @menuColor: #d7dee3;
+@shortcutColor: color("#c94d4b");
 body {
   background: @color;
   font-family: 'Open Sans';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .pane-north,.pane-south {
   background: @bgColor;
@@ -28,10 +33,6 @@ body {
 #startMenu {
   background-color: @menuColor;
   display: inline-block;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   cursor: pointer;
   width: 60px;
   text-align: center;
@@ -90,7 +91,7 @@ body {
 .shortcutPane li div {
   width: 120px;
   height: 120px;
-  background-color: red;
+  background-color: @shortcutColor;
 }
 .indicator_wrapper {
   width: 264px;
