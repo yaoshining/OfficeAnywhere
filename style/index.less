@@ -3,13 +3,16 @@
 @contentBgColor: #ffbe83;
 @menuColor: #d7dee3;
 @shortcutColor: color("#c94d4b");
+.disable-select (@select: none) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  user-select: @select;
+}
 body {
   background: @color;
   font-family: 'Open Sans';
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  .disable-select;
 }
 .pane-north,.pane-south {
   background: @bgColor;
@@ -79,14 +82,11 @@ body {
   margin: 0 100px;
   text-align: left;
 }
-.shortcutPane li{
+.shortcutPane li {
   list-style: none;
   float: left;
   margin: 30px 30px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  .disable-select;
 }
 .shortcutPane li div {
   width: 120px;
@@ -159,24 +159,22 @@ body {
   right: 0;
   bottom: 20px;
   text-align: center;
-}
-
-.dots li {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 4px;
-  text-indent: -999em;
-  border: 2px solid #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  opacity: .4;
-  -webkit-transition: background .5s, opacity .5s;
-  -moz-transition: background .5s, opacity .5s;
-  transition: background .5s, opacity .5s;
-}
-
-.dots li.active {
-  background: #fff;
-  opacity: 1;
+  li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    text-indent: -999em;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: .4;
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+  }
+  li.active {
+    background: #fff;
+    opacity: 1;
+  }
 }

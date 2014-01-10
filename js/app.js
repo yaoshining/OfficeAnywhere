@@ -26,6 +26,10 @@ requirejs.config({
         "jquery-ui": {
             deps: ['jquery']
         },
+        "ztree.core":{
+            deps: ["jquery"],
+            exports: ["jQuery.fn.zTree"]
+        },
         'angular': {
             exports: "angular"
         },
