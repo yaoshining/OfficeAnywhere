@@ -16,9 +16,9 @@ define(['modules/App','unslider','factories/Item'],function(app){
                         keys: true
                     }).css("visibility","visible");
                     var data = slidey.data('unslider');
-                    scope.changePage = function(pageNum){
-                        data.to(pageNum);
-                    }
+                    scope.$watch('page',function(newValue){
+                        data.to(newValue-1);
+                    });
                     element.on("mousedown",function(event){
                         var ox = event.pageX;
                         var oy = event.pageY;
@@ -34,7 +34,8 @@ define(['modules/App','unslider','factories/Item'],function(app){
                             if(predictPage>4){
                                 predictPage=4
                             }
-                            scope.changePage(predictPage);
+                            scope.page = predictPage+1;
+                            scope.page = data.to(predictPage);
                             $(this).off("mousemove");
                         });
                     });

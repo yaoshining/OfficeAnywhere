@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['angular','modules/App' , 'factories/Item'] , function (angular,app) {
+define(['angular','modules/App','factories/Item'] , function (angular,app) {
     app.controller('listCtrl' , function ($scope,Item,$rootElement,$rootScope) {
         var items = Item.query(function(){
 //            console.log($rootElement);

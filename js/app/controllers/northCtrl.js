@@ -11,7 +11,7 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
             $scope.menus = menus;
         });
         $scope.newTab = function(item){
-        if(_.where($scope.menus,{name: item.name}).length<1){
+            if(_.where($scope.menus,{name: item.name}).length<1){
                 $scope.menus.push(item);
             }
             $location.path(item.url);
