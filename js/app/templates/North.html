@@ -2,7 +2,7 @@
 
 </div>
 <div id="navigator">
-    <div id="menuNav" style="display: inline-block;width: 100%;height: 45px;position: relative;">
+    <div id="menuNav" style="display: block;width: 100%;height: 45px;position: relative;">
         <div id="startMenu" data-dropdown="#dropdown-1"><i class="fa fa-home" style="font-size: 20px"></i>菜单</div>
         <div class="menu">
             <a type="button" class="btn btn-default" ng-repeat="menu in menus" ng-href="#/{{menu.url}}">{{ menu.name }}</a>
@@ -22,10 +22,11 @@
         </ul>
     </div>
 </div>
-<div id="dropdown-1" class="dropdown dropdown-tip" ng-init="dropdownMenus=[{name:'工作',url:'Task'},{name:'个人事务',url:'Personal'}]">
-    <div class="dropdown-panel">
-        <ul>
+<!--ng-init="dropdownMenus=[{name:'工作',url:'Task'},{name:'个人事务',url:'Personal'}]-->
+<div id="dropdown-1" class="dropdown dropdown-tip">
+    <div class="dropdown-panel" accordion>
+        <!--<ul>
             <li ng-repeat="menu in dropdownMenus" ng-click="newTab(menu)">{{ menu.name }}</li>
-        </ul>
+        </ul>-->
     </div>
 </div>
