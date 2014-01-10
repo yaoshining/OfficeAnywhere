@@ -37,6 +37,8 @@ define(['modules/App','unslider','factories/Item'],function(app){
                             scope.page = predictPage+1;
                             scope.page = data.to(predictPage);
                             $(this).off("mousemove");
+                        }).one("mouseout",function(){
+                            $(this).trigger("mouseup");
                         });
                     });
                 },500);
