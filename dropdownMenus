@@ -1,0 +1,11 @@
+[
+    { "id":1, "pId":0, "name":"个人事务", "open":false},
+    { "id":11, "pId":1, "name":"收文管理","url":"asasdadasd.com"},
+    { "id":12, "pId":1, "name":"内部邮件"},
+    { "id":13, "pId":1, "name":"公告通知"},
+    { "id":14, "pId":1, "name":"新闻"},
+    { "id":15, "pId":1, "name":"投票"},
+    { "id":2, "pId":0, "name":"工作流"},
+    { "id":21, "pId":2, "name":"新建工作"},
+    { "id":22, "pId":2, "name":"我的工作","url":"Task"}
+]

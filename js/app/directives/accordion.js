@@ -1,8 +1,8 @@
 /**
  * Created by 世宁 on 14-1-10.
  */
-define(['modules/App','zTree.core','css!style/css/zTreeStyle'],function(app){
-    app.directive('tree',function($timeout){
+define(['modules/App','zTree.core','css!style/css/zTreeStyle','factories/DropdownMenus'],function(app){
+    app.directive('tree',function(DropdownMenus){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/DropdownMenus.html",
@@ -19,31 +19,26 @@ define(['modules/App','zTree.core','css!style/css/zTreeStyle'],function(app){
                     data: {
                         simpleData: {
                             enable: true
+                        },
+                        key: {
+                            url: "xUrl"
                         }
                     },
                     callback: {
-//                        beforeClick: beforeClick,
                         beforeExpand: beforeExpand,
                         onExpand: onExpand,
                         onClick: onClick
                     }
                 };
+                var menus = DropdownMenus.query(function(){
+                    var zNodes = menus;
+                    var treeObj = element.find("ul:first");
+                    $.fn.zTree.init(treeObj, setting, zNodes);
+                    zTree_Menu = $.fn.zTree.getZTreeObj("treeDemo");
+                    curMenu = zTree_Menu.getNodes()[0].children[0];
+                    zTree_Menu.selectNode(curMenu);
+                });
 
-                var zNodes =[
-                    { id:1, pId:0, name:"主菜单1", open:false},
-                    { id:11, pId:1, name:"菜单11"},
-                    { id:111, pId:11, name:"菜单111"},
-                    { id:112, pId:111, name:"菜单112"},
-                    { id:113, pId:112, name:"菜单113"},
-                    { id:114, pId:113, name:"菜单114"},
-                    { id:12, pId:1, name:"菜单12"},
-                    { id:13, pId:1, name:"菜单13"},
-                    { id:14, pId:1, name:"菜单14"},
-                    { id:15, pId:1, name:"菜单15"},
-                    { id:3, pId:0, name:"主菜单2"},
-                    { id:31, pId:3, name:"菜单31"},
-                    { id:32, pId:3, name:"菜单32"}
-                ];
 
                 function addDiyDom(treeId, treeNode) {
                     var spaceWidth = 5;
@@ -58,17 +53,6 @@ define(['modules/App','zTree.core','css!style/css/zTreeStyle'],function(app){
                     }
                 }
 
-                function beforeClick(treeId, treeNode) {
-                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                    zTree.expandNode(treeNode);
-                    return true;
-//                    if (treeNode.level == 0 ) {
-//                        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-//                        zTree.expandNode(treeNode);
-//                        return false;
-//                    }
-//                    return true;
-                }
                 var curExpandNode = null;
                 function beforeExpand(treeId, treeNode) {
                     var pNode = curExpandNode ? curExpandNode.getParentNode():null;
@@ -134,12 +118,13 @@ define(['modules/App','zTree.core','css!style/css/zTreeStyle'],function(app){
                 function onClick(e,treeId, treeNode) {
                     var zTree = $.fn.zTree.getZTreeObj("treeDemo");
                     zTree.expandNode(treeNode, null, null, null, true);
+                    if(!treeNode.isParent){
+                        if(treeNode.url){
+                            $("#north").scope().newTab({name:treeNode.name,url: treeNode.url});
+                        }
+                    }
                 }
-                var treeObj = element.find("ul:first");
-                $.fn.zTree.init(treeObj, setting, zNodes);
-                zTree_Menu = $.fn.zTree.getZTreeObj("treeDemo");
-                curMenu = zTree_Menu.getNodes()[0].children[0].children[0];
-                zTree_Menu.selectNode(curMenu);
+
 
 //                treeObj.hover(function () {
 //                    if (!treeObj.hasClass("showIcon")) {

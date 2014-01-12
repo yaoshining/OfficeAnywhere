@@ -25,8 +25,8 @@
         <li style="float: left">
             <div class="desktop" style="display: inline-block;">
                 <div class="shortcutPane" shortcuts>
-                    <ul>
-                        <li ng-repeat="item in items[0].shortcuts" class="repeated-item" ng-click="openTab(item)">
+                    <ul sortable>
+                        <li ng-repeat="item in items[0].shortcuts" class="repeated-item">
                             <div>{{ item.name }}</div>
                         </li>
                     </ul>
@@ -37,7 +37,7 @@
             <div class="desktop" style="display: inline-block;">
                 <div class="shortcutPane">
                     <ul>
-                        <li ng-repeat="item in items[1].shortcuts" class="repeated-item" ng-click="openTab(item)">
+                        <li ng-repeat="item in items[1].shortcuts" class="repeated-item">
                             <div>{{ item.name }}</div>
                         </li>
                     </ul>
@@ -48,7 +48,7 @@
             <div class="desktop" style="display: inline-block;">
                 <div class="shortcutPane">
                     <ul>
-                        <li ng-repeat="item in items[2].shortcuts" class="repeated-item" ng-click="openTab(item)">
+                        <li ng-repeat="item in items[2].shortcuts" class="repeated-item">
                             <div>{{ item.name }}</div>
                         </li>
                     </ul>
@@ -59,7 +59,7 @@
             <div class="desktop" style="display: inline-block;">
                 <div class="shortcutPane">
                     <ul>
-                        <li ng-repeat="item in items[3].shortcuts" class="repeated-item" ng-click="openTab(item)">
+                        <li ng-repeat="item in items[3].shortcuts" class="repeated-item">
                             <div>{{ item.name }}</div>
                         </li>
                     </ul>
@@ -70,7 +70,7 @@
             <div class="desktop" style="display: inline-block;">
                 <div class="shortcutPane">
                     <ul>
-                        <li ng-repeat="item in items[4].shortcuts" class="repeated-item" ng-click="openTab(item)">
+                        <li ng-repeat="item in items[4].shortcuts" class="repeated-item">
                             <div>{{ item.name }}</div>
                         </li>
                     </ul>
