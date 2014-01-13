@@ -121,6 +121,7 @@ define(['modules/App','zTree.core','css!style/css/zTreeStyle','factories/Dropdow
                     if(!treeNode.isParent){
                         if(treeNode.url){
                             $("#north").scope().newTab({name:treeNode.name,url: treeNode.url});
+                            $(document).trigger('click.dropdown');
                         }
                     }
                 }

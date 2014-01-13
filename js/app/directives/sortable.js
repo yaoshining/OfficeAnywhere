@@ -6,7 +6,17 @@ define(['modules/App','jquery-ui'],function(app){
         return {
             restrict: "A",
             link: function(scope,element){
-                element.sortable();
+                element.sortable({
+                    helper: "clone",
+                    opacity: 0.5,
+                    delay: 100,
+                    revert: true,
+                    tolerance: "pointer",
+                    stop: function(event,ui){
+                        var data = $(this).sortable("serialize");
+                        console.log(data);
+                    }
+                });
                 element.disableSelection();
             }
         };

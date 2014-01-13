@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-3.
  */
 define(['angular','modules/App','factories/Item'] , function (angular,app) {
-    app.controller('listCtrl' , function ($scope,Item,$rootElement,$rootScope) {
+    app.controller('listCtrl' , function ($scope,Item,$compile,$http) {
         var items = Item.query(function(){
 //            console.log($rootElement);
         });
@@ -10,6 +10,16 @@ define(['angular','modules/App','factories/Item'] , function (angular,app) {
         $scope.items = items;
         $scope.openTab = function(item){
             $("#north").scope().newTab(item);
+        };
+        $scope.paginate = function(page){
+          $scope.page = page;
+        };
+        $scope.openManage = function(){
+            $.fancybox.open({
+                href: "http://www.baidu.com",
+                type: "iframe",
+                padding: 5
+            });
         }
     })
 //    .animation('.repeated-item',function(){

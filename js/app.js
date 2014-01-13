@@ -15,6 +15,7 @@ requirejs.config({
         "templates": "../app/templates",
         "jquery": "jquery-1.8.3.min",
         "jquery-ui": "jquery-ui-1.9.2.custom.min",
+        "fancybox": "jquery.fancybox",
         "layout": "jquery.layout-latest",
         "style": "../../style"
     },
@@ -25,6 +26,10 @@ requirejs.config({
         },
         "jquery-ui": {
             deps: ['jquery']
+        },
+        "fancybox": {
+            deps: ["jquery"],
+            exports:"jQuery.fn.layout"
         },
         "ztree.core":{
             deps: ["jquery"],
@@ -66,5 +71,7 @@ requirejs(["less!style/font-awesome/less/font-awesome",
            "jquery-ui",
            "es5-shim",
            "underscore",
+           "fancybox",
+           "css!style/css/jquery.fancybox",
            "css!style/css/bootstrap"]);
 requirejs(["app/main"]);

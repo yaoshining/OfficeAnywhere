@@ -23,7 +23,7 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
             $scope.menus.splice(_.indexOf($scope.menus,menu),1);
             $location.path("/");
             $("#startMenu").dropdown("hide");
-        }
+        };
         $("#startMenu").dropdown();
     }]);
 });

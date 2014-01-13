@@ -20,6 +20,9 @@ define(['modules/App','unslider','factories/Item'],function(app){
                         data.to(newValue-1);
                     });
                     element.on("mousedown",function(event){
+                        if(_.contains(event.target.getAttribute("class").split(" "),"shortcut")){
+                            return false;
+                        }
                         var ox = event.pageX;
                         var oy = event.pageY;
                         var left = parseFloat($(this).find("ul").css("left"));
