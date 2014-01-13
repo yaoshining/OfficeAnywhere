@@ -5,7 +5,7 @@
     <div id="menuNav" style="display: block;width: 100%;height: 45px;position: relative;">
         <div id="startMenu" data-dropdown="#dropdown-1"><i class="fa fa-home" style="font-size: 20px"></i>菜单</div>
         <div class="menu">
-            <a type="button" class="btn btn-default" ng-repeat="menu in menus" ng-href="#/{{menu.url}}">{{ menu.name }}<span class="close-icon" ng-click="closeTab($event,menu)">×</span></a>
+            <a type="button" class="btn btn-default" ng-repeat="menu in menus" href="javascript:void(0)" ng-click="newTab(menu,false)">{{ menu.name }}<span class="close-icon" ng-click="closeTab($event,menu)">×</span></a>
             <!--<a type="button" class="btn btn-default" ng-href="/OfficeAnywhere/#/Personal">个人事务</a>
             <a type="button" class="btn btn-default">个人事务</a>-->
         </div>

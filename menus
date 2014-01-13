@@ -1,7 +1,7 @@
 [{
     "name": "我的桌面",
-    "url": "Desktop"
+    "url": "js/app/templates/Desktop.html"
 },{
     "name": "个人事务",
-    "url": "Personal"
+    "url": "js/app/templates/Personal.html"
 }]

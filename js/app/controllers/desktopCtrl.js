@@ -1,15 +1,15 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['angular','modules/App','factories/Item'] , function (angular,app) {
-    app.controller('listCtrl' , function ($scope,Item,$compile,$http) {
+define(['angular','modules/App','factories/Item','directives/layout','services/centerService'] , function (angular,app) {
+    app.controller('desktopCtrl' , function ($scope,Item,$compile,$http,centerService) {
         var items = Item.query(function(){
 //            console.log($rootElement);
         });
         $scope.page = 1;
         $scope.items = items;
-        $scope.openTab = function(item){
-            $("#north").scope().newTab(item);
+        $scope.openTab = function(item,apply){
+            $("#north").scope().newTab(item,apply);
         };
         $scope.paginate = function(page){
           $scope.page = page;

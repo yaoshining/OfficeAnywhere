@@ -120,7 +120,7 @@ define(['modules/App','zTree.core','css!style/css/zTreeStyle','factories/Dropdow
                     zTree.expandNode(treeNode, null, null, null, true);
                     if(!treeNode.isParent){
                         if(treeNode.url){
-                            $("#north").scope().newTab({name:treeNode.name,url: treeNode.url});
+                            $("#north").scope().newTab({name:treeNode.name,url: treeNode.url},true);
                             $(document).trigger('click.dropdown');
                         }
                     }

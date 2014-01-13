@@ -11,6 +11,7 @@ requirejs.config({
         "directives": "../app/directives",
         "routes": "../app/routes",
         "controllers": "../app/controllers",
+        "services": "../app/services",
         "factories": "../app/factories",
         "templates": "../app/templates",
         "jquery": "jquery-1.8.3.min",

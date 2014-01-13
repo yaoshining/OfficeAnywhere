@@ -26,7 +26,7 @@ define(['modules/App','directives/sortable'],function(app){
                             if(!isDrag){
                                 var shortcut = scope.items[scope.page-1].shortcuts[$(this).index()];
                                 if(shortcut.url){
-                                    scope.openTab(shortcut);
+                                    scope.openTab(shortcut,true);
                                 }
                             }
                         });

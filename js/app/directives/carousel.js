@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-8.
  */
-define(['modules/App','unslider','factories/Item'],function(app){
+define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],function(app){
     app.directive('carousel',function(Item,$timeout){
         return {
             restrict: "A",
@@ -46,7 +46,7 @@ define(['modules/App','unslider','factories/Item'],function(app){
                     });
                 },500);
             },
-            controller: 'listCtrl'
+            controller: "desktopCtrl"
         };
     });
 });
