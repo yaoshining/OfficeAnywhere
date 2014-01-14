@@ -1,7 +1,7 @@
 [{
     "page":1,
-    "shortcuts": [{"id":1,"name":"工作","url":"js/app/templates/Task.html"},{"id":1,"name":"百度","url":"http://www.baidu.com","iframe":true},{"id":1,"name":"图片浏览"},{"id":1,"name":"维基百科"},{"id":1,"name":"维基百科"},{"id":1,"name":"OA知道"},
-                 {"id":1,"name":"hao123","url":"http://www.hao123.com/","iframe":true},{"id":1,"name":"文件柜"},{"id":1,"name":"图片浏览"},{"id":1,"name":"维基百科"},{"id":1,"name":"维基百科"},{"id":1,"name":"OA知道"}]
+    "shortcuts": [{"id":1,"name":"工作","url":"js/app/templates/Task.html","img":"images/0.png"},{"id":1,"name":"百度","url":"http://www.baidu.com","iframe":true,"img":"images/1.png"},{"id":1,"name":"图片浏览","img":"images/2.png"},{"id":1,"name":"维基百科","img":"images/3.png"},{"id":1,"name":"维基百科","img":"images/4.png"},{"id":1,"name":"OA知道","img":"images/5.png"},
+                 {"id":1,"name":"hao123","url":"http://www.hao123.com/","iframe":true,"img":"images/6.png"},{"id":1,"name":"文件柜","img":"images/7.png"},{"id":1,"name":"图片浏览","img":"images/8.png"},{"id":1,"name":"维基百科","img":"images/9.png"},{"id":1,"name":"维基百科","img":"images/10.png"},{"id":1,"name":"OA知道","img":"images/11.png"}]
 },
 {
     "page":2,

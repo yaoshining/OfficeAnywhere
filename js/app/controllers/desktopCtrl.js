@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['angular','modules/App','factories/Item','directives/layout','services/centerService'] , function (angular,app) {
+define(['angular','modules/App','factories/Item','services/centerService'] , function (angular,app) {
     app.controller('desktopCtrl' , function ($scope,Item,$compile,$http,centerService) {
         var items = Item.query(function(){
 //            console.log($rootElement);

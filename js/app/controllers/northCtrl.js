@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown','factories/Menus','directives/accordion','services/centerService'] , function (angular,app) {
+define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown','factories/Menus','directives/accordion','directives/calendar','services/centerService'] , function (angular,app) {
     app.controller('northCtrl' , ['$rootScope','$scope','Menus','$location','centerService','$route', function ($rootScope,$scope,Menus,$location,centerService,$route) {
         $scope.template = {
             name: 'template',

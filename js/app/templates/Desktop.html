@@ -29,7 +29,8 @@
                 <div class="shortcutPane" shortcuts>
                     <ul sortable>
                         <li ng-repeat="item in desktop.shortcuts" class="repeated-item">
-                            <div class="shortcut">{{ item.name }}</div>
+                            <div class="shortcut" shortcut src="{{item.img}}"></div>
+                            <div class="shortcut-title">{{item.name}}</div>
                         </li>
                     </ul>
                 </div>

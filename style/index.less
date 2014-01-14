@@ -86,10 +86,13 @@ body {
   margin: 30px 30px;
   .disable-select;
 }
-.shortcutPane li div {
+.shortcutPane li div.shortcut {
   width: 120px;
   height: 120px;
   background-color: @shortcutColor;
+}
+.shortcutPane li div.shortcut-title {
+  text-align: center;
 }
 .indicator_wrapper {
   width: 264px;
@@ -164,6 +167,38 @@ body {
 }
 .close-icon:hover {
   color: red;
+}
+.my-calendar{
+  display: inline-block;
+  float: right;
+  color: #ffffff;
+}
+.my-calendar .solar-date{
+  display: inline-block;
+  float: left;
+}
+.my-calendar .solar-weekday{
+  display: inline-block;
+  float: right;
+}
+.my-calendar .lunar-date{
+  display: inline-block;
+  float: left;
+  clear: left;
+}
+.my-calendar .time{
+  display: inline-block;
+  float: right;
+}
+.my-calendar .location{
+  display: inline-block;
+  float: left;
+  clear: left;
+}
+.my-calendar .weather{
+  display: inline-block;
+  float: right;
+  text-align: right;
 }
 
 .dots {

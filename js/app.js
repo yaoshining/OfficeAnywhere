@@ -75,4 +75,7 @@ requirejs(["less!style/font-awesome/less/font-awesome",
            "fancybox",
            "css!style/css/jquery.fancybox",
            "css!style/css/bootstrap"]);
+if(!document.querySelectorAll){
+//    require(["ie-shim"]);
+}
 requirejs(["app/main"]);
