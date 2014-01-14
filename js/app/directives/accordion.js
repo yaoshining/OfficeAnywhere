@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-10.
  */
-define(['modules/App','zTree.core','css!style/css/zTreeStyle','factories/DropdownMenus'],function(app){
+define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/DropdownMenus'],function(app){
     app.directive('tree',function(DropdownMenus){
         return {
             restrict: "A",
@@ -120,7 +120,8 @@ define(['modules/App','zTree.core','css!style/css/zTreeStyle','factories/Dropdow
                     zTree.expandNode(treeNode, null, null, null, true);
                     if(!treeNode.isParent){
                         if(treeNode.url){
-                            $("#north").scope().newTab({name:treeNode.name,url: treeNode.url},true);
+                            $("#north").scope().newTab({name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
+                            console.log(scope);
                             $(document).trigger('click.dropdown');
                         }
                     }

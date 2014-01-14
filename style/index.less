@@ -1,8 +1,16 @@
 @color: #FFF;
-@bgColor: #c94d4b;
-@contentBgColor: #ffbe83;
+@bgColor: rgb(197,0,0);
+@bgImage: "../images/banner_pixel.png";
+@bgImageLeft:"../images/banner_left.png";
+@bgImageRight: "../images/banner_right.png";
+@logo:"../images/logo.png";
+@contentBgColor: #fffbe1;
 @menuColor: #d7dee3;
-@shortcutColor: color("#c94d4b");
+@menuBarBgImage: "../images/menubar_pixel.png";
+@menuBarShadowImage: "../images/menubar_shadow.png";
+@tabBgImage: "../images/tab.png";
+@startMenuImage: "../images/startmenu_bg.png";
+@shortcutColor: color("#fffbe1");
 .disable-select (@select: none) {
   -webkit-user-select: @select;
   -moz-user-select: @select;
@@ -16,13 +24,42 @@ body {
 }
 .pane-north,.pane-south {
   background: @bgColor;
+  background-image: url(@bgImage);
+}
+.left_pattern {
+  display: inline-block;
+  position: absolute;
+  width: 190px;
+  height: 120px;
+  top: 0;
+  left: 0;
+  background: url(@bgImageLeft);
+  z-index: -999;
+}
+.logo {
+  display: inline-block;
+  width: 474px;
+  height: 40px;
+  margin-left: 10px;
+  margin-top: 25px;
+  background: url(@logo);
+}
+.right_pattern {
+  display: inline-block;
+  position: absolute;
+  width: 259px;
+  height: 120px;
+  top: 0;
+  right: 0;
+  background: url(@bgImageRight);
+  z-index: -999;
 }
 .pane-center {
   background: @contentBgColor;
   position: relative;
 }
 #banner {
-  height: 70px;
+  height: 75px;
 }
 #menuNav {
   height: 45px;
@@ -37,27 +74,41 @@ body {
   background-color: @menuColor;
   display: inline-block;
   cursor: pointer;
-  width: 60px;
+  width: 87px;
+  height: 27px;
+  line-height: 27px;
   text-align: center;
   margin-left: 10px;
   margin-top: 10px;
+  background: url(@startMenuImage);
 }
 .menu a{
   margin:0 10px;
-  width: 80px;
+  width: 101px;
+  height: 35px;
   background-color: @menuColor;
-  border-color: @menuColor;
+  border-color: transparent;
+  background: url(@tabBgImage);
   border-radius: 0;
+}
+.menu .btn{
+  border-color: transparent;
+  border: none;
 }
 .menu {
   display: inline-block;
   bottom: 0;
-  left: 70px;
+  left: 110px;
   position: absolute
 }
 #menuBar {
   background: @menuColor;
+  background: url(@menuBarBgImage);
   height: 25px;
+}
+.menubar-shadow{
+  background: url(@menuBarShadowImage);
+  height: 4px;
 }
 #menuBar ul {
   padding: 0;
@@ -89,7 +140,7 @@ body {
 .shortcutPane li div.shortcut {
   width: 120px;
   height: 120px;
-  background-color: @shortcutColor;
+  //background-color: @shortcutColor;
 }
 .shortcutPane li div.shortcut-title {
   text-align: center;

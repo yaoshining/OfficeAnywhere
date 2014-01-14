@@ -11,7 +11,6 @@ define(['modules/App','directives/sortable'],function(app){
                         var sort = false;
                         var delay = setTimeout(function(){
                             sort =true;
-                            console.log("ok");
                         },2000);
                         var isDrag = false;
                         $(this).one("mousemove",function(e){

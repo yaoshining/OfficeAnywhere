@@ -34,7 +34,7 @@ requirejs.config({
         },
         "ztree.core":{
             deps: ["jquery"],
-            exports: ["jQuery.fn.zTree"]
+            exports: "jQuery.fn.zTree"
         },
         'angular': {
             exports: "angular"

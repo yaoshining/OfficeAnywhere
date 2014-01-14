@@ -25,10 +25,13 @@ define(['modules/App'],function(app){
                         seconds: date.getSeconds()
                     }
                     $http({
-                        url: "http://pv.sohu.com/cityjson?ie=utf-8",
+                        url: "http://pv.sohu.com/cityjson",
                         method: "get"
                     }).success(function(data){
-                        console.log(eval('('+data+')'));
+                        var dataStr = data.substr(data.indexOf("{"),data.length-data.indexOf("{")-1);
+                        var returnCitySN = $.parseJSON(dataStr);
+//                        console.log(returnCitySN.cname);
+//                        console.log(eval(dataStr));
                     });
                     $scope.$apply();
                 },1000);

@@ -7,5 +7,5 @@
     { "id":15, "pId":1, "name":"投票"},
     { "id":2, "pId":0, "name":"工作流"},
     { "id":21, "pId":2, "name":"新建工作"},
-    { "id":22, "pId":2, "name":"我的工作","url":"js/app/templates/Task.html"}
+    { "id":22, "pId":2, "name":"我的工作","url":"http://www.baidu.com","iframe":true}
 ]

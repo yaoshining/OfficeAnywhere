@@ -5,7 +5,7 @@ define(['modules/App','directives/sortable'],function(app){
     app.directive('layout',function($timeout){
         return {
             restrict: "A",
-            templateUrl: "js/app/templates/layout.html",
+            templateUrl: "js/app/templates/Layout.html",
             link: function(scope,element){
                 var layoutSettings = {
                     name: "layout",
