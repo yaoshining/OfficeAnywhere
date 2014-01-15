@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-13.
  */
-define(['modules/App','directives/sortable'],function(app){
+define(['modules/App','directives/togglepanel'],function(app){
     app.directive('layout',function($timeout){
         return {
             restrict: "A",
@@ -19,7 +19,7 @@ define(['modules/App','directives/sortable'],function(app){
                         fxName: "none"
                     },
                     north: {
-                        size: 140
+                        size: 149
                     },
                     south: {
                         size: 20,
