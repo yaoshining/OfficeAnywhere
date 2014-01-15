@@ -24,15 +24,15 @@ define(['modules/App'],function(app){
                         minutes: date.getMinutes(),
                         seconds: date.getSeconds()
                     }
-                    $http({
-                        url: "http://pv.sohu.com/cityjson",
-                        method: "get"
-                    }).success(function(data){
-                        var dataStr = data.substr(data.indexOf("{"),data.length-data.indexOf("{")-1);
-                        var returnCitySN = $.parseJSON(dataStr);
+//                    $http({
+//                        url: "http://pv.sohu.com/cityjson",
+//                        method: "get"
+//                    }).success(function(data){
+//                        var dataStr = data.substr(data.indexOf("{"),data.length-data.indexOf("{")-1);
+//                        var returnCitySN = $.parseJSON(dataStr);
 //                        console.log(returnCitySN.cname);
 //                        console.log(eval(dataStr));
-                    });
+//                    });
                     $scope.$apply();
                 },1000);
             }
