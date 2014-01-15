@@ -11,14 +11,14 @@ define(['modules/App','factories/TogglePanel'],function(app){
                     element.animate({
                         right: "0px"
                     },1000,function(){
-                        $(button).text("关闭");
+                        $(button).find(".button-name").text("关闭");
                     });
                 },function(){
                     var button = this;
                     element.animate({
                         right: "-240px"
                     },1000,function(){
-                        $(button).text("打开");
+                        $(button).find(".button-name").text("打开");
                     });
                 });
             },
