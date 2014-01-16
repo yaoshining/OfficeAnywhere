@@ -2,11 +2,12 @@
  * Created by 世宁 on 14-1-10.
  */
 define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/DropdownMenus'],function(app){
-    app.directive('tree',function(DropdownMenus){
+    app.directive('tree',function(DropdownMenus,$rootScope){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/DropdownMenus.html",
             link: function(scope,element){
+                $rootScope.loadingPhase = "正在初始化下拉菜单...";
                 var curMenu = null, zTree_Menu = null;
                 var setting = {
                     view: {
@@ -120,7 +121,7 @@ define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/Dropdow
                     zTree.expandNode(treeNode, null, null, null, true);
                     if(!treeNode.isParent){
                         if(treeNode.url){
-                            $("#north").scope().newTab({name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
+                            $("#north").scope().newTab({id:treeNode.id,name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
                             console.log(scope);
                             $(document).trigger('click.dropdown');
                         }

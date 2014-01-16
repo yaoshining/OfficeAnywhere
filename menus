@@ -1,7 +1,10 @@
 [{
+    "id": "我的桌面",
     "name": "我的桌面",
-    "url": "js/app/templates/Desktop.html"
+    "url": "js/app/templates/Desktop.html",
+    "active": true
 },{
+    "id": "个人事务",
     "name": "个人事务123123123123123123123123123123",
     "url": "js/app/templates/Personal.html"
 }]

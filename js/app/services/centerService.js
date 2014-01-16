@@ -30,9 +30,9 @@ define(['modules/App'] , function (app) {
                 this.broadcast(this.template,apply);
             },
             close: function() {
-                this.template = this.previousTemplates.length>0?this.previousTemplates[this.previousTemplates.length-1]:this.defaultTemplate;
-                this.previousTemplates.pop();
-                this.broadcast(this.template,false);
+//                this.template = this.previousTemplates.length>0?this.previousTemplates[this.previousTemplates.length-1]:this.defaultTemplate;
+//                this.previousTemplates.pop();
+                this.broadcast({url: ""},false);
             }
         };
     }]);

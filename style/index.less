@@ -8,7 +8,8 @@
 @menuColor: #d7dee3;
 @menuBarBgImage: "../images/menubar_pixel.png";
 @menuBarShadowImage: "../images/menubar_shadow.png";
-@tabBgImage: "../images/tab.png";
+@tabActiveBgImage: "../images/tab_active.png";
+@tabBgImage: "../images/tabBg.png";
 @startMenuImage: "../images/startmenu_bg.png";
 @shortcutColor: color("#fffbe1");
 .disable-select (@select: none) {
@@ -84,7 +85,20 @@ body {
   text-align: center;
   margin-left: 10px;
   margin-top: 10px;
+  color: #FF0000;
+  font-size: 16px;
   background: url(@startMenuImage);
+}
+.btn-default {
+  color: #ffffff;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default{
+  background: url(@tabActiveBgImage) no-repeat;
+  color: red;
 }
 .menu {
   display: inline-block;
@@ -149,6 +163,17 @@ body {
       }
     }
   }
+}
+#messageBox {
+  position: absolute;
+  display: inline-block;
+  bottom: -60%;
+  right: 0;
+  width: 200px;
+  height: 60%;
+  background-color: #ffffff;
+  border: 1px solid #C50000;
+  z-index: 999;
 }
 .indicator_wrapper {
   width: 264px;

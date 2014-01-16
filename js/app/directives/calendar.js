@@ -2,15 +2,16 @@
  * Created by 世宁 on 14-1-13.
  */
 define(['modules/App'],function(app){
-    app.directive('calendar',function($http){
+    app.directive('calendar',function($http,$rootScope){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/Calendar.html",
             link: function(scope,element){
-
+                $rootScope.loadingPhase = "正在初始化日历模块...";
             },
             controller: function($scope){
                 setInterval(function(){
+
                     var date = new Date();
                     var weekday = ["日","一","二","三","四","五","六"];
                     $scope.solarDate = {

@@ -2,14 +2,14 @@
  * Created by 世宁 on 14-1-15.
  */
 define(['modules/App','factories/TogglePanel'],function(app){
-    app.directive('togglepanel',function(TogglePanel){
+    app.directive('togglepanel',function(TogglePanel,$rootScope){
         return {
             restrict: "A",
             link: function(scope,element){
                 $(function(){
                     var togglePanel = TogglePanel.query(function(){
                         scope.togglePanel = togglePanel[0];
-
+                        $rootScope.loadingPhase = "正在初始化右侧面板...";
                         element.find(".toggleButton").css("right","-240px");
                         element.find(".toggleButton").toggle(function(){
                             var button = this;

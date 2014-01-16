@@ -7,19 +7,21 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
             name: 'template',
             url: 'js/app/templates/North.html'
         };
-        var menus = Menus.query(function(){
-            $scope.menus = menus;
-        });
+//        var menus = Menus.query(function(){
+//            $scope.menus = menus;
+//        });
+        $scope.menus = Menus.menus;
         $scope.newTab = function(item,apply){
-            if(_.where($scope.menus,{name: item.name}).length<1){
-                $scope.menus.push(item);
+            if(_.where($scope.menus,{id: item.id}).length<1){
+                Menus.menus.push(item);
             }
+            Menus.active(item);
             centerService.open(item,apply);
         };
         $scope.closeTab = function($event,menu){
             $event.preventDefault();
-            $scope.menus.splice(_.indexOf($scope.menus,menu),1);
-            centerService.close();
+            Menus.close(menu);
+//            centerService.close();
             $("#startMenu").dropdown("hide");
         };
         $("#startMenu").dropdown();
