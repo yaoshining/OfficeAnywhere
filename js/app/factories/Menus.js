@@ -10,7 +10,7 @@ define(['modules/App','underscore','services/centerService'] , function (app) {
         var service = {
             history: [],
             menus: menus,
-            active: function(menu){
+            active: function(menu,$scope){
                 if(!menu.active){
                     var activedMenu = _.where(this.menus,{active: true})[0];
                     if(activedMenu&&activedMenu.id!=menu.id){

@@ -7,6 +7,7 @@ define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/Dropdow
             restrict: "A",
             templateUrl: "js/app/templates/DropdownMenus.html",
             link: function(scope,element){
+                element.height($("#center").height()-$(this).siblings(".user-info").height()-50);
                 $rootScope.loadingPhase = "正在初始化下拉菜单...";
                 var curMenu = null, zTree_Menu = null;
                 var setting = {
@@ -122,7 +123,6 @@ define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/Dropdow
                     if(!treeNode.isParent){
                         if(treeNode.url){
                             $("#north").scope().newTab({id:treeNode.id,name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
-                            console.log(scope);
                             $(document).trigger('click.dropdown');
                         }
                     }

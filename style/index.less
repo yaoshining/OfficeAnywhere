@@ -10,6 +10,7 @@
 @menuBarShadowImage: "../images/menubar_shadow.png";
 @tabActiveBgImage: "../images/tab_active.png";
 @tabBgImage: "../images/tabBg.png";
+@shortcutTitle: "../images/title_pixel.png";
 @startMenuImage: "../images/startmenu_bg.png";
 @shortcutColor: color("#fffbe1");
 .disable-select (@select: none) {
@@ -151,6 +152,7 @@ body {
       list-style: none;
       float: left;
       margin: 30px 30px;
+      text-align: center;
       .disable-select;
       div.shortcut {
         width: 120px;
@@ -160,6 +162,13 @@ body {
       }
       div.shortcut-title {
         text-align: center;
+        padding: 3px;
+        margin-top: 10px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        font-size: 12px;
+        background: url(@shortcutTitle) repeat;
+        display: inline-block;
       }
     }
   }
@@ -171,6 +180,7 @@ body {
   right: 0;
   width: 200px;
   height: 60%;
+  display: none;
   background-color: #ffffff;
   border: 1px solid #C50000;
   z-index: 999;
@@ -288,6 +298,7 @@ body {
     opacity: 0.9;
     .user-info {
       color: #ffffff;
+      height: 56px;
       .user-head {
         width: 47px;
         height: 43px;
@@ -297,9 +308,14 @@ body {
     }
     .menu-tree {
       background-color: #ffffff;
+      overflow-x: hidden;
+      overflow-y: auto;
       .ztree li a {
         color: #c50000;
       }
+    }
+    .ztree li a.level0 span {
+      font-size: 120%;
     }
   }
 }
@@ -355,4 +371,10 @@ body {
     background: #fff;
     opacity: 1;
   }
+}
+.building {
+  background:url('../images/building.jpg');
+  display: inline-block;
+  width: 200px;
+  height: 251px;
 }

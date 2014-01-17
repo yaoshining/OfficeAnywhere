@@ -10,10 +10,11 @@ define(['modules/App'],function(app){
             transclude: false,
             scope:false,
             link: function(scope,element,attrs,controller,transcludeFn){
-                element.text("消息提示");
+                element.html($("<div>").addClass("building"));
             },
             controller: function($scope,$element){
                 $scope.$on("messagebox.show",function(event,template,apply){
+                    $element.show();
                     $element.animate({
                         bottom: "0%"
                     },1000);
@@ -21,7 +22,9 @@ define(['modules/App'],function(app){
                 $scope.$on("messagebox.hide",function(event,template,apply){
                     $element.animate({
                         bottom: "-60%"
-                    },1000);
+                    },1000,function(){
+                        $(this).hide();
+                    });
                 });
             }
         };
