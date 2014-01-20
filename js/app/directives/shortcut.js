@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-8.
  */
-define(['modules/App'],function(app){
+define(['modules/App','directives/shortcuts'],function(app){
     app.directive('shortcut',function(){
         return {
             restrict: "A",

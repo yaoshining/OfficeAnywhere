@@ -8,6 +8,9 @@ define(['modules/App','directives/sortable'],function(app){
             link: function(scope,element){
                 $timeout(function(){
                     element.find("li").on("mousedown",function(e){
+                        if(e.which!=1){
+                          return;
+                        }
                         var sort = false;
                         var delay = setTimeout(function(){
                             sort =true;

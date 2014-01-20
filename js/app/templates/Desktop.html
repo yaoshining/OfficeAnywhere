@@ -27,7 +27,7 @@
         <li style="float: left" ng-repeat="desktop in items">
             <div class="desktop" style="display: inline-block;">
                 <div class="shortcutPane" shortcuts>
-                    <ul sortable>
+                    <ul sortable array="desktop.shortcuts">
                         <li ng-repeat="item in desktop.shortcuts" class="repeated-item">
                             <div class="shortcut" shortcut src="{{item.img}}"></div>
                             <div class="shortcut-title">{{item.name}}</div>

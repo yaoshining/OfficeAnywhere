@@ -143,7 +143,7 @@ body {
   text-align: left;
   ul{
     position: relative;
-    display: block;
+    display: inline-block;
     list-style: none;
     padding: 0;
     margin: 0 100px;
@@ -153,6 +153,9 @@ body {
       float: left;
       margin: 30px 30px;
       text-align: center;
+      cursor: pointer;
+      width: 120px;
+      height: 120px;
       .disable-select;
       div.shortcut {
         width: 120px;
@@ -171,6 +174,9 @@ body {
         display: inline-block;
       }
     }
+  }
+  .sortable-placeholder {
+    background-color: green;
   }
 }
 #messageBox {

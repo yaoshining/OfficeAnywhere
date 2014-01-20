@@ -20,7 +20,7 @@ define(['modules/App','factories/TogglePanel'],function(app){
                                     frame.show();
                                     element.animate({
                                         right: "0px"
-                                    },1000,function(){
+                                    },500,function(){
                                         $(button).find(".button-name").text("关闭");
                                     });
                                 });
@@ -28,7 +28,7 @@ define(['modules/App','factories/TogglePanel'],function(app){
                                 frame.show();
                                 element.animate({
                                     right: "0px"
-                                },1000,function(){
+                                },500,function(){
                                     $(button).find(".button-name").text("关闭");
                                 });
                             }
@@ -36,7 +36,7 @@ define(['modules/App','factories/TogglePanel'],function(app){
                             var button = this;
                             element.animate({
                                 right: "-240px"
-                            },1000,function(){
+                            },500,function(){
                                 $(button).find(".button-name").text("打开");
                                 element.find("#contentFrame").hide();
                             });
