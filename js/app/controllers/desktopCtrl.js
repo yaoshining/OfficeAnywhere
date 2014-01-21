@@ -16,7 +16,7 @@ define(['angular','modules/App','factories/Item','services/centerService'] , fun
         };
         $scope.openManage = function(){
             $.fancybox.open({
-                href: "http://www.baidu.com",
+                href: "building.html",
                 type: "iframe",
                 padding: 5
             });
