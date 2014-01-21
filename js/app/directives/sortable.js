@@ -23,12 +23,13 @@ define(['modules/App','jquery-ui'],function(app){
                     update: function(event,ui){
                         var start = ui.item.data('start'),
                             end = ui.item.index();
-                        console.log(ui);
-                        console.log(array);
+                        console.log(end);
+//                        console.log(ui);
+//                        console.log(array);
                         array.splice(end, 0,
                             array.splice(start, 1)[0]);
 //                        console.log(ui);
-//                        $scope.$apply();
+//                        scope.$apply();
                     }
                 });
                 element.disableSelection();

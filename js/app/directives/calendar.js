@@ -8,15 +8,20 @@ define(['modules/App'],function(app){
             templateUrl: "js/app/templates/Calendar.html",
             link: function(scope,element){
                 $rootScope.loadingPhase = "正在初始化日历模块...";
-                var format = "yyyy-MM-dd",stopTime;
+                var dateFormat = "yyyy年MM月dd日",
+                    timeFormat = "HH:mm:ss",stopTime;
+                var weekday = ["日","一","二","三","四","五","六"];
                 function updateTime() {
-                    element.find(".solar-date").text(dateFilter(new Date(),format));
+                    var date = new Date();
+                    element.find(".solar-date").text(dateFilter(date,dateFormat));
+                    element.find(".solar-weekday").text("星期"+weekday[date.getDay()]);
+                    element.find(".time").text(dateFilter(date,timeFormat));
                 }
-//                stopTime = $interval(updateTime,1000);
+                updateTime();
+                stopTime = setInterval(updateTime,1000);
                 console.log(scope);
             },
             controller: function($scope){
-                $scope.date = new Date();
                 setInterval(function(){
                     $scope.date = new Date();
                     var date = new Date();
