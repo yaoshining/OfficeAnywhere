@@ -15,17 +15,19 @@ define(['modules/App','jquery-ui'],function(app){
                     opacity: 0.5,
                     delay: 100,
                     revert: true,
-                    placeholder: "sortable-placeholder",
+//                    placeholder: "sortable-placeholder",
                     tolerance: "pointer",
                     start: function(event,ui){
                         ui.item.data('start', ui.item.index());
                     },
-                    stop: function(event,ui){
+                    update: function(event,ui){
                         var start = ui.item.data('start'),
                             end = ui.item.index();
+                        console.log(ui);
+                        console.log(array);
                         array.splice(end, 0,
                             array.splice(start, 1)[0]);
-                        console.log(ui);
+//                        console.log(ui);
 //                        $scope.$apply();
                     }
                 });

@@ -2,16 +2,23 @@
  * Created by 世宁 on 14-1-13.
  */
 define(['modules/App'],function(app){
-    app.directive('calendar',function($http,$rootScope){
+    app.directive('calendar',function($http,$rootScope,$interval,dateFilter){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/Calendar.html",
             link: function(scope,element){
                 $rootScope.loadingPhase = "正在初始化日历模块...";
+                var format = "yyyy-MM-dd",stopTime;
+                function updateTime() {
+                    element.find(".solar-date").text(dateFilter(new Date(),format));
+                }
+//                stopTime = $interval(updateTime,1000);
+                console.log(scope);
             },
             controller: function($scope){
+                $scope.date = new Date();
                 setInterval(function(){
-
+                    $scope.date = new Date();
                     var date = new Date();
                     var weekday = ["日","一","二","三","四","五","六"];
                     $scope.solarDate = {
@@ -34,7 +41,7 @@ define(['modules/App'],function(app){
 //                        console.log(returnCitySN.cname);
 //                        console.log(eval(dataStr));
 //                    });
-                    $scope.$apply();
+//                    $scope.$apply();
                 },1000);
             }
         };
