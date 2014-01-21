@@ -10,10 +10,11 @@ define(['modules/App','jquery-ui'],function(app){
             },
             link: function(scope,element){
                 var array = scope.sortableArray;
+
                 element.sortable({
                     helper: "clone",
                     opacity: 0.5,
-                    delay: 100,
+                    delay: 50,
                     revert: true,
 //                    placeholder: "sortable-placeholder",
                     tolerance: "pointer",
@@ -28,6 +29,7 @@ define(['modules/App','jquery-ui'],function(app){
 //                        console.log(array);
                         array.splice(end, 0,
                             array.splice(start, 1)[0]);
+                        scope.$apply();
 //                        console.log(ui);
 //                        scope.$apply();
                     }

@@ -7,11 +7,11 @@
     <div id="menuNav" style="display: block;width: 100%;height: 45px;position: relative;">
         <div id="startMenu" data-dropdown="#dropdown-1"><i class="fa fa-home" style="font-size: 20px"></i>菜单</div>
         <div class="menu">
-            <a type="button" class="btn btn-default {{menu.active?'active':''}}" ng-repeat="menu in menus" href="javascript:void(0)" ng-click="newTab(menu,false)"><marquee ng-if="menu.name.length>4" scrolldelay="400">{{ menu.name }}</marquee><span ng-if="menu.name.length<=4">{{ menu.name }}</span><span class="close-icon" ng-click="closeTab($event,menu)">×</span></a>
+            <a type="button" class="btn btn-default {{menu.active?'active':''}}" ng-repeat="menu in menus" href="javascript:void(0)" ng-click="newTab(menu,false)">{{ menu.name }}<span class="close-icon" ng-click="closeTab($event,menu)">×</span></a>
             <!--<a type="button" class="btn btn-default" ng-href="/OfficeAnywhere/#/Personal">个人事务</a>
             <a type="button" class="btn btn-default">个人事务</a>-->
         </div>
-        <div style="position: absolute;right: 10px;display: inline-block;height: 100%;line-height: 45px;">
+        <div style="position: absolute;right: 10px;display: inline-block;height: 20px;line-height: 20px;bottom: 10px;">
             <i class="fa fa-key" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer"></i>
             <span class="glyphicon glyphicon-cog" style="font-size: 20px;color: #ffffff;cursor: pointer"></span>
         </div>

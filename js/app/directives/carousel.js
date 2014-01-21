@@ -18,6 +18,10 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                         element.css("visibility","hidden");
                         $timeout(function(){
                             element.find(".desktop").height($("#center").height());
+                            scope.$on("layout.center.resize",function(e,h){
+                                element.height(h);
+                                element.find(".desktop").height(h);
+                            });
                             element.find(".shortcutPane").css("margin-top",0-element.find(".shortcutPane").height()/2+"px");
                             var slidey = element.unslider({
                                 dots: false,

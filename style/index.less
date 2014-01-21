@@ -8,8 +8,8 @@
 @menuColor: #d7dee3;
 @menuBarBgImage: "../images/menubar_pixel.png";
 @menuBarShadowImage: "../images/menubar_shadow.png";
-@tabActiveBgImage: "../images/tab_active.png";
-@tabBgImage: "../images/tabBg.png";
+@tabActiveBgImage: "../images/tab_active_pixel.png";
+@tabBgImage: "../images/tabBg_pixel.png";
 @shortcutTitle: "../images/title_pixel.png";
 @startMenuImage: "../images/startmenu_bg.png";
 @shortcutColor: color("#fffbe1");
@@ -98,7 +98,7 @@ body {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default{
-  background: url(@tabActiveBgImage) no-repeat;
+  background: url(@tabActiveBgImage) repeat;
   color: red;
 }
 .menu {
@@ -108,12 +108,15 @@ body {
   position: absolute;
   a{
     margin:0 5px;
-    width: 101px;
+//    width: 101px;
     height: 35px;
     background-color: @menuColor;
     border-color: transparent;
-    background: url(@tabBgImage) no-repeat;
-    border-radius: 0;
+    background: url(@tabBgImage) repeat;
+    border-top-left-radius: 0.5;
+    border-top-right-radius: 0.5;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
   .btn{
     border-color: transparent;
@@ -270,7 +273,7 @@ body {
   float: right;
   color: #ffffff;
   width: 200px;
-  margin-right: 10px;
+  margin: 5px 10px;
   .solar-date {
     display: inline-block;
     float: left;

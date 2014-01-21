@@ -44,6 +44,12 @@ define(['modules/App','directives/togglepanel','directives/messagebox'],function
                             south: {
                                 size: 20,
                                 padding: 0
+                            },
+                            center: {
+                                onresize: function(a,element,c){
+                                    element.height(c.innerHeight);
+                                    $rootScope.$broadcast("layout.center.resize", c.innerHeight)
+                                }
                             }
                         };
                         element.layout(layoutSettings);
