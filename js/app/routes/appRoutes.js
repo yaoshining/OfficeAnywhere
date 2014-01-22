@@ -10,5 +10,7 @@ define(['modules/App' , 'controllers/appCtrl','controllers/northCtrl','directive
 //                return 'js/app/templates/'+routeParams.module+'.html';
 //            }
 //        });
-    }]);
+    }]).run(function(){
+        console.log("Modules are now loaded completely!");
+    });
 });

@@ -21,17 +21,15 @@ define(['modules/App','jquery-ui'],function(app){
                     start: function(event,ui){
                         ui.item.data('start', ui.item.index());
                     },
-                    update: function(event,ui){
+                    deactivate: function(event,ui){
                         var start = ui.item.data('start'),
                             end = ui.item.index();
-                        console.log(end);
+//                        console.log(end);
 //                        console.log(ui);
 //                        console.log(array);
                         array.splice(end, 0,
                             array.splice(start, 1)[0]);
                         scope.$apply();
-//                        console.log(ui);
-//                        scope.$apply();
                     }
                 });
                 element.disableSelection();

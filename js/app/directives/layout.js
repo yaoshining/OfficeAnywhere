@@ -1,26 +1,14 @@
 /**
  * Created by 世宁 on 14-1-13.
  */
-define(['modules/App','directives/togglepanel','directives/messagebox'],function(app){
+define(['modules/App','controllers/appCtrl','directives/togglepanel','directives/messagebox'],function(app){
     app.directive('layout',function($timeout,$rootScope){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/Layout.html",
             link: function(scope,element){
             },
-            controller: function($scope){
-                var show = false;
-                $scope.toggleMessageBox = function(){
-                    if(!show){
-                        $rootScope.$broadcast("messagebox.show");
-                        show = true;
-                    }else{
-                        $rootScope.$broadcast("messagebox.hide");
-                        show = false;
-                    }
-
-                }
-            }
+            controller: "appCtrl"
             ,compile: function compile(tElement,tAttrs,transclude){
                 return {
                     pre: function preLink(scope, iElement, iAttrs, controller) {
