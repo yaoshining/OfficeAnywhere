@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-3.
  */
 define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown','factories/Menus','directives/accordion','directives/calendar','services/centerService'] , function (angular,app) {
-    app.controller('northCtrl' , ['$rootScope','$scope','Menus','$location','centerService','$route', function ($rootScope,$scope,Menus,$location,centerService,$route) {
+    app.controller('northCtrl' , ['$rootScope','$scope','Menus','$location','centerService','$route', function ($rootScope,$scope,Menus,$location,centerService,$route,$window) {
         $scope.template = {
             name: 'template',
             url: 'js/app/templates/North.html'
@@ -17,6 +17,9 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
             }
             Menus.active(item);
             centerService.open(item,apply);
+        };
+        window.newTab = function(item,apply){
+            $scope.newTab(item,apply);
         };
         $scope.closeTab = function($event,menu){
             $event.preventDefault();
