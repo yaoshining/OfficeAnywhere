@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-3.
  */
 define(['angular','modules/App','factories/Item','services/centerService'] , function (angular,app) {
-    app.controller('desktopCtrl' , function ($scope,Item,$compile,$http,centerService) {
+    app.controller('desktopCtrl' , function ($scope,Item) {
         var items = Item.query(function(){
 //            console.log($rootElement);
         });

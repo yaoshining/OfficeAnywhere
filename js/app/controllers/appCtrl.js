@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-3.
  */
 define(['angular','modules/App','directives/layout','directives/shader','services/userService'] , function (angular,app) {
-    app.controller('appCtrl' ,function ($scope,$rootScope,userService) {
+    app.controller('appCtrl' ,function ($scope,$rootScope,userService,$q) {
         var show = false;
         $scope.toggleMessageBox = function(){
             if(!show){

@@ -29,7 +29,7 @@ define(['modules/App','jquery-ui'],function(app){
 //                        console.log(array);
                         array.splice(end, 0,
                             array.splice(start, 1)[0]);
-                        scope.$apply();
+//                        scope.$apply();
                     }
                 });
                 element.disableSelection();
