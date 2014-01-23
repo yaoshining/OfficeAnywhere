@@ -26,7 +26,7 @@ define(['modules/App','directives/sortable'],function(app){
                         $(this).one("mouseup",function(){
                             clearTimeout(delay);
                             if(!isDrag){
-                                var shortcut = scope.items[scope.page-1].shortcuts[$(this).index()];
+                                var shortcut = scope.items[scope.page-1].shortcuts[$(this).closest("li").index()];
                                 if(shortcut.url){
                                     scope.openTab(shortcut,true);
                                 }
