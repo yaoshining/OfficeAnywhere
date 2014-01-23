@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-3.
  */
 define(['angular','modules/App','factories/Item','services/centerService'] , function (angular,app) {
-    app.controller('desktopCtrl' , function ($scope,Item) {
+    app.controller('desktopCtrl' , function ($scope,Item,$log) {
         var items = Item.query(function(){
 //            console.log($rootElement);
         });
@@ -12,6 +12,7 @@ define(['angular','modules/App','factories/Item','services/centerService'] , fun
             $("#north").scope().newTab(item,apply);
         };
         $scope.paginate = function(page){
+          $log.debug("Change page to "+page);
           $scope.page = page;
         };
         $scope.openManage = function(){
