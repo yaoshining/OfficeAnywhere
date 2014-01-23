@@ -36,7 +36,7 @@ define(['modules/App','controllers/appCtrl','directives/togglepanel','directives
                             center: {
                                 onresize: function(a,element,c){
                                     element.height(c.innerHeight);
-                                    $rootScope.$broadcast("layout.center.resize", c.innerHeight)
+                                    $rootScope.$broadcast("layout.center.resize", c.innerHeight);
                                 }
                             }
                         };
