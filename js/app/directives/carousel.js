@@ -33,7 +33,7 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                                 data.to(newValue-1);
                             });
                             element.on("mousedown",function(event){
-                                if(_.contains($(event.target).attr("class").split(" "),"shortcut")||_.contains($(event.target).attr("class").split(" "),"shortcut-title")){
+                                if(_.contains($(event.target).attr("class").split(" "),"shortcut")){
                                     return false;
                                 }
                                 var ox = event.pageX;

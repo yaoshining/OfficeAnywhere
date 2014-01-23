@@ -10,7 +10,13 @@ define(['modules/App','jquery-ui'],function(app){
             },
             link: function(scope,element){
                 var array = scope.sortableArray;
-
+                element.on("mousedown",function(event){
+                    if(!(_.contains($(event.originalEvent.target).attr("class").split(" "),"shortcut"))){
+                        $(this).sortable("disable");
+                    }else{
+                        $(this).sortable("enable");
+                    }
+                });
                 element.sortable({
                     helper: "clone",
                     opacity: 0.5,
@@ -20,6 +26,9 @@ define(['modules/App','jquery-ui'],function(app){
                     tolerance: "pointer",
                     start: function(event,ui){
                         ui.item.data('start', ui.item.index());
+//                        if(!(_.contains($(event.originalEvent.target).attr("class").split(" "),"shortcut"))){
+//                            $(this).sortable("disable");
+//                        }
                     },
                     deactivate: function(event,ui){
                         var start = ui.item.data('start'),
@@ -33,6 +42,7 @@ define(['modules/App','jquery-ui'],function(app){
                     }
                 });
                 element.disableSelection();
+                element.sortable("disable");
             },
             controller: function($scope,$element){
 

@@ -7,7 +7,7 @@ define(['modules/App','directives/sortable'],function(app){
             restrict: "A",
             link: function(scope,element){
                 $timeout(function(){
-                    element.find("li").on("mousedown",function(e){
+                    element.find(".shortcut").on("mousedown",function(e){
                         if(e.which!=1){
                           return;
                         }
