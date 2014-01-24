@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-13.
  */
-define(['modules/App','factories/Resources'] , function (app) {
+define(['modules/App','factories/Resource'] , function (app) {
     app.service('userService' , ['$rootScope' ,'$http','Resources', function ($rootScope,$http,Resources) {
         var logoutUrl;
         var resources = Resources.query(function(){
@@ -9,7 +9,8 @@ define(['modules/App','factories/Resources'] , function (app) {
         });
         return {
             logout: function(callback){
-                $http.get(logoutUrl).success(callback);
+//                $http.get(logoutUrl).success(callback);
+                callback(logoutUrl);
             }
         };
     }]);

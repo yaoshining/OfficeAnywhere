@@ -1,5 +1,5 @@
 [{
     "paths": {
-        "logout": "logout"
+        "logout": "login.html"
     }
 }]

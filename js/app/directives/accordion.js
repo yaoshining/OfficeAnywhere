@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-10.
  */
 define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/DropdownMenus'],function(app){
-    app.directive('tree',function(DropdownMenus,$rootScope){
+    app.directive('tree',function(DropdownMenus,$rootScope,$log){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/DropdownMenus.html",
@@ -36,9 +36,10 @@ define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/Dropdow
                     var zNodes = menus;
                     var treeObj = element.find("ul:first");
                     $.fn.zTree.init(treeObj, setting, zNodes);
-                    zTree_Menu = $.fn.zTree.getZTreeObj("treeDemo");
-                    curMenu = zTree_Menu.getNodes()[0].children[0];
-                    zTree_Menu.selectNode(curMenu);
+                    $log.debug("Loaded "+menus.length+" drop down menus from server:\n"+JSON.stringify(menus));
+//                    zTree_Menu = $.fn.zTree.getZTreeObj("treeDemo");
+//                    curMenu = zTree_Menu.getNodes()[0].children[0];
+//                    zTree_Menu.selectNode(curMenu);
                 });
 
 

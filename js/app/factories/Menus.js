@@ -2,10 +2,11 @@
  * Created by 世宁 on 14-1-8.
  */
 define(['modules/App','underscore','services/centerService'] , function (app) {
-    app.factory('Menus' , ['$resource' ,'centerService', function ($resource,centerService) {
+    app.factory('Menus' , ['$resource' ,'centerService','$log', function ($resource,centerService,$log) {
         var menuResource = $resource('menus/:page' , {page: '@page'});
         var menus = menuResource.query(function(){
             service.history = _.where(menus,{active:true});
+            $log.debug("Loaded "+menus.length+" menus from server:\n"+JSON.stringify(menus));
         });
         var service = {
             history: [],

@@ -5,6 +5,7 @@ define(['angular','modules/App','factories/Item','services/centerService'] , fun
     app.controller('desktopCtrl' , function ($scope,Item,$log) {
         var items = Item.query(function(){
 //            console.log($rootElement);
+            $log.debug("Loaded "+items.length+" desktops from server:\n"+JSON.stringify(items));
         });
         $scope.page = 1;
         $scope.items = items;
@@ -21,7 +22,7 @@ define(['angular','modules/App','factories/Item','services/centerService'] , fun
                 type: "iframe",
                 padding: 5
             });
-        }
+        };
     })
 //    .animation('.repeated-item',function(){
 //            return {

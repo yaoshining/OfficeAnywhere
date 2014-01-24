@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-13.
  */
 define(['modules/App','controllers/appCtrl','directives/togglepanel','directives/messagebox'],function(app){
-    app.directive('layout',function($timeout,$rootScope){
+    app.directive('layout',function($timeout,$rootScope,$log){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/Layout.html",
@@ -36,7 +36,8 @@ define(['modules/App','controllers/appCtrl','directives/togglepanel','directives
                             center: {
                                 onresize: function(a,element,c){
                                     element.height(c.innerHeight);
-                                    $rootScope.$broadcast("layout.center.resize", c.innerHeight);
+                                    $rootScope.$broadcast("layout.center.resize", c.innerHeight, c.innerWidth);
+                                    $log.debug("Layout center is resized to width "+c.innerWidth+"px and height "+c.innerHeight+"px");
                                 }
                             }
                         };

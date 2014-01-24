@@ -5,8 +5,8 @@
 @bgImageLeft:"../images/banner_left.png";
 @bgImageRight: "../images/banner_right.png";
 @logo:"../images/logo.png";
-@contentBgColor: #fffbe1;
-@menuColor: #d7dee3;
+@contentBgColor: #fffcf0;
+@menuColor: #fffcf0;
 @menuBarBgImage: "../images/menubar_pixel.png";
 @menuBarShadowImage: "../images/menubar_shadow.png";
 @tabActiveBgImage: "../images/tab_active_pixel.png";
@@ -87,7 +87,7 @@ body {
   text-align: center;
   margin-left: 10px;
   margin-top: 10px;
-  color: #FF0000;
+  color: #dd0801;
   font-size: 16px;
   background: url(@startMenuImage);
 }
@@ -99,8 +99,9 @@ body {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default{
-  background: url(@tabActiveBgImage) repeat;
-  color: red;
+//  background: url(@tabActiveBgImage) repeat;
+  background-color: #fffcf0;
+  color: #dd0801;
 }
 .menu {
   display: inline-block;
@@ -113,7 +114,9 @@ body {
     height: 35px;
     background-color: @menuColor;
     border-color: transparent;
-    background: url(@tabBgImage) repeat;
+    color: #ffde80;
+//    background: url(@tabBgImage) repeat;
+    background-color: #f46215;
     border-top-left-radius: 0.5;
     border-top-right-radius: 0.5;
     border-bottom-right-radius: 0;
@@ -126,7 +129,7 @@ body {
 }
 #menuBar {
   background: @menuColor;
-  background: url(@menuBarBgImage);
+//  background: url(@menuBarBgImage);
   height: 25px;
   ul {
     padding: 0;

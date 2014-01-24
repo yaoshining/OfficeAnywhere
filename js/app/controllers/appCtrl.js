@@ -14,10 +14,8 @@ define(['angular','modules/App','directives/layout','directives/shader','service
             }
         }
         $scope.logout = function(){
-            userService.logout(function(data){
-                if(data.state){
-                    window.location.href = "login.html";
-                }
+            userService.logout(function(url){
+                window.location.href = url;
             });
         }
     })
