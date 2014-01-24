@@ -69,10 +69,10 @@ requirejs.config({
 });
 requirejs(["less!style/font-awesome/less/font-awesome",
            "json2",
-//           "jquery-ui",
-//           "es5-shim",
-//           "underscore",
-//           "fancybox",
+           "jquery-ui",
+           "es5-shim",
+           "underscore",
+           "fancybox",
            "css!style/css/jquery.fancybox",
            "css!style/css/bootstrap"
 ]);
