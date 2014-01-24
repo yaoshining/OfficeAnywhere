@@ -14,6 +14,8 @@
 @shortcutTitle: "../images/title_pixel.png";
 @startMenuImage: "../images/startmenu_bg.png";
 @shortcutColor: color("#fffbe1");
+@tabCloseOn: "../images/tabs_close_moveon.png";
+@tabClose: "../images/tabs_close.png";
 .disable-select (@select: none) {
   -webkit-user-select: @select;
   -moz-user-select: @select;
@@ -102,6 +104,7 @@ body {
 //  background: url(@tabActiveBgImage) repeat;
   background-color: #fffcf0;
   color: #dd0801;
+  box-shadow: none;
 }
 .menu {
   display: inline-block;
@@ -121,10 +124,25 @@ body {
     border-top-right-radius: 0.5;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    display: inline-block;
+    position: relative;
+    padding-right: 25px;
   }
   .btn{
     border-color: transparent;
     border: none;
+  }
+  .close-icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: url(@tabClose) no-repeat;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+  .close-icon:hover {
+    background-image: url(@tabCloseOn);
   }
 }
 #menuBar {
@@ -186,6 +204,7 @@ body {
         span {
           background: url(@shortcutTitle) repeat;
           padding: 3px;
+          border-radius: 0.5;
         }
       }
     }
@@ -276,9 +295,6 @@ body {
 }
 .indicator_manager:hover{
   background-position: -207px -157px;
-}
-.close-icon:hover {
-  color: red;
 }
 .my-calendar{
   display: inline-block;

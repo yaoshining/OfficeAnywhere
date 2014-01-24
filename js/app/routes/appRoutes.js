@@ -13,6 +13,7 @@ define(['modules/App' , 'controllers/appCtrl','controllers/northCtrl','directive
           $logProvider.debugEnabled(true);
     }]).run(function($rootScope,$log){
         $rootScope.$log = $log;
+        $rootScope.hideMask = true;
         $log.debug("Modules are now loaded completely!");
     });
 });

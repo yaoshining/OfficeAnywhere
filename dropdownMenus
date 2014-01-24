@@ -1,6 +1,9 @@
 [
     { "id":1, "pId":0, "name":"个人事务", "open":false},
     { "id":11, "pId":1, "name":"收文管理","url":"asasdadasd.com"},
+    { "id":219, "pId":11, "name":"收文管理","url":"asasdadasd.com"},
+    { "id":2191, "pId":219, "name":"收文管理","url":"asasdadasd.com"},
+    { "id":21911, "pId":2191, "name":"收文管理","url":"asasdadasd.com"},
     { "id":12, "pId":1, "name":"内部邮件"},
     { "id":13, "pId":1, "name":"公告通知"},
     { "id":14, "pId":1, "name":"新闻"},

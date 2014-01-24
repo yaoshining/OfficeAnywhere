@@ -42,7 +42,7 @@ define(['modules/App','controllers/appCtrl','directives/togglepanel','directives
                             }
                         };
                         element.layout(layoutSettings);
-                        $rootScope.hideMask = true;
+//                        $rootScope.hideMask = true;
                     }
                 }
             }
