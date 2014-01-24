@@ -16,12 +16,13 @@ define(['modules/App'],function(app){
                         "position": "absolute",
                         top: "50%",
                         left: "50%",
-                        width: "400px",
-                        height: "200px",
-                        "margin-left": "-200px",
-                        "margin-top": "-100px",
-                        "background-color": "red"
-                    }).text(scope.loadingPhase);
+                        width: "64px",
+                        height: "64px",
+                        "margin-left": "-32px",
+                        "margin-top": "-32px"
+                    })
+//                    .text(scope.loadingPhase)
+                    .addClass("loading");
                 var mask = $("<div>",{
                     id: "loading-mask"
                 }).css({
@@ -33,7 +34,7 @@ define(['modules/App'],function(app){
                     "height": "100%"
                 }).append(loading).appendTo(element);
                 scope.$watch("loadingPhase",function(newValue){
-                    loading.text(newValue);
+//                    loading.text(newValue);
                     console.log(newValue);
                 });
                 scope.$watch("hideMask",function(newValue){
