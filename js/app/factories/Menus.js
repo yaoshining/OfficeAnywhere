@@ -16,7 +16,7 @@ define(['modules/App','underscore','services/centerService'] , function (app) {
                     var activedMenu = _.where(this.menus,{active: true})[0];
                     if(activedMenu&&activedMenu.id!=menu.id){
                         activedMenu.active = false;
-                        menu.active = true;
+                        _.findWhere(this.menus,{id:menu.id}).active = true;
                         this.history.push(menu);
                     }
                     if(!activedMenu){
