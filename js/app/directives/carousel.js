@@ -12,7 +12,7 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
             ,compile: function compile(tElement,tAttrs,transclude){
                 return {
                     pre: function preLink(scope, iElement, iAttrs, controller) {
-                        $rootScope.loadingPhase = "正在初始化桌面...";
+                        $rootScope.loadingPhrase = "正在初始化桌面...";
                     },
                     post: function postLink(scope, element, iAttrs, controller) {
                         element.css("visibility","hidden");

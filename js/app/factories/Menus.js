@@ -13,9 +13,9 @@ define(['modules/App','underscore','services/centerService'] , function (app) {
             menus: menus,
             active: function(menu,$scope){
                 if(!menu.active){
-                    var activedMenu = _.where(this.menus,{active: true})[0];
+                    var activedMenu = _.findWhere(this.menus,{active: true});
                     if(activedMenu&&activedMenu.id!=menu.id){
-                        activedMenu.active = false;
+                        _.findWhere(this.menus,{active: true}).active = false;
                         _.findWhere(this.menus,{id:menu.id}).active = true;
                         this.history.push(menu);
                     }

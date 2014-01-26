@@ -9,7 +9,7 @@ define(['modules/App','factories/TogglePanel'],function(app){
                 $(function(){
                     var togglePanel = TogglePanel.query(function(){
                         scope.togglePanel = togglePanel[0];
-                        $rootScope.loadingPhase = "正在初始化右侧面板...";
+                        $rootScope.loadingPhrase = "正在初始化右侧面板...";
                         element.find(".toggleButton").css("right","-240px");
                         element.find(".toggleButton").toggle(function(){
                             var button = this;

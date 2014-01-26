@@ -76,11 +76,11 @@ requirejs(["less!style/index.less","less!style/font-awesome/less/font-awesome","
             loadingPhrase.innerHTML = "正在载入子模块...";
             setTimeout(function(){
                 require(["app/main"],function(){
-                    loadingMask.style.display = "none";
+                    loadingPhrase.innerHTML = "正在初始化...";
                 });
-            },3000);
+            },0);
         });
-    },3000);
+    },0);
 });
 //requirejs(["less!style/font-awesome/less/font-awesome",
 //           "json2",

@@ -41,6 +41,7 @@ define(['modules/App','controllers/appCtrl','directives/togglepanel','directives
                                 }
                             }
                         };
+                        element.css("height","100%");
                         element.layout(layoutSettings);
 //                        $rootScope.hideMask = true;
                     }

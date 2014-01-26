@@ -13,6 +13,10 @@ define(['angular','modules/App','services/centerService','factories/UserInfo'] ,
                 $scope.$apply();
             }
         });
+        $scope.$watch("template",function(newTpl,oldTpl){
+            console.log(newTpl);
+            console.log(oldTpl);
+        });
         $scope.$on("$includeContentLoaded",function(){
             $scope.height = document.getElementById("center").clientHeight;
         });

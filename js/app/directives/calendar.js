@@ -7,7 +7,7 @@ define(['modules/App'],function(app){
             restrict: "A",
             templateUrl: "js/app/templates/Calendar.html",
             link: function(scope,element){
-                $rootScope.loadingPhase = "正在初始化日历模块...";
+                $rootScope.loadingPhrase = "正在初始化日历模块...";
                 var dateFormat = "yyyy年MM月dd日",
                     timeFormat = "HH:mm:ss",stopTime;
                 var weekday = ["日","一","二","三","四","五","六"];

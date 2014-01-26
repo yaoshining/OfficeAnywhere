@@ -7,8 +7,14 @@ define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/Dropdow
             restrict: "A",
             templateUrl: "js/app/templates/DropdownMenus.html",
             link: function(scope,element){
-                element.height($("#center").height()-$(this).siblings(".user-info").height()-50);
-                $rootScope.loadingPhase = "正在初始化下拉菜单...";
+                function render(){
+                    element.height($("#center").height()-$(this).siblings(".user-info").height()-50);
+                };
+                render();
+                scope.$on("layout.center.resize",function(){
+                    render();
+                });
+                $rootScope.loadingPhrase = "正在初始化下拉菜单...";
                 var curMenu = null, zTree_Menu = null;
                 var setting = {
                     view: {

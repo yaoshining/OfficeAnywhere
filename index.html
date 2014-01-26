@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style/css/mask.css" />
 </head>
 <body>
-<div id="loading-mask">
+<div shader id="loading-mask">
     <div id="loadingIndicator" class="loading-indicator">
         <div class="loading-img"></div>
         <div id="loadingPhrase" class="loading-phrase">正在加载基本样式和图片...</div>
+        <div ng-bind="loadingPhrase"></div>
     </div>
 </div>
-<div layout style="height: 100%;width: 100%;">
+<div layout>
 
 </div>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300">
