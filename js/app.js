@@ -1,6 +1,8 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
+var loadingMask = document.getElementById("loading-mask");
+var loadingPhrase = document.getElementById("loadingPhrase");
 requirejs.config({
     "baseUrl": "js/lib",
     "paths": {
@@ -67,16 +69,29 @@ requirejs.config({
         }
     }
 });
-requirejs(["less!style/font-awesome/less/font-awesome",
-           "json2",
-           "jquery-ui",
-           "es5-shim",
-           "underscore",
-           "fancybox",
-           "css!style/css/jquery.fancybox",
-           "css!style/css/bootstrap"
-]);
-//if(!document.querySelectorAll){
-////    require(["ie-shim"]);
-//}
-requirejs(["app/main"]);
+requirejs(["less!style/index.less","less!style/font-awesome/less/font-awesome","css!style/css/bootstrap"],function(){
+    loadingPhrase.innerHTML = "正在载入js核心库...";
+    setTimeout(function(){
+        require(["jquery-ui","json2","es5-shim","underscore"],function(){
+            loadingPhrase.innerHTML = "正在载入子模块...";
+            setTimeout(function(){
+                require(["app/main"],function(){
+                    loadingMask.style.display = "none";
+                });
+            },3000);
+        });
+    },3000);
+});
+//requirejs(["less!style/font-awesome/less/font-awesome",
+//           "json2",
+//           "jquery-ui",
+//           "es5-shim",
+//           "underscore",
+//           "fancybox",
+//           "css!style/css/jquery.fancybox",
+//           "css!style/css/bootstrap"
+//]);
+////if(!document.querySelectorAll){
+//////    require(["ie-shim"]);
+////}
+//requirejs(["app/main"]);
