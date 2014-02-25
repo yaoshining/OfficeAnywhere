@@ -7,6 +7,7 @@ define(['angular','modules/App','services/centerService','factories/UserInfo'] ,
             $rootScope.userInfo = userInfo;
         });
         $scope.template = centerService.template;
+        $scope.templates = centerService.templates;
         $scope.$on("center.update",function(event,template,apply){
             $scope.template = template;
             if(apply){
@@ -14,8 +15,7 @@ define(['angular','modules/App','services/centerService','factories/UserInfo'] ,
             }
         });
         $scope.$watch("template",function(newTpl,oldTpl){
-            console.log(newTpl);
-            console.log(oldTpl);
+
         });
         $scope.$on("$includeContentLoaded",function(){
             $scope.height = document.getElementById("center").clientHeight;

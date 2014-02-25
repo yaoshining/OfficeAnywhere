@@ -28,11 +28,23 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                             var slidey = element.unslider({
                                 dots: false,
                                 autoplay: false,
-                                keys: true
+                                keys: false
                             }).css("visibility","visible");
                             var data = slidey.data('unslider');
                             scope.$watch('page',function(newValue){
-                                data.to(newValue-1);
+                                console.log(newValue);
+                                data.stop().to(newValue-1);
+                            });
+                            $("body").keydown(function(e) {
+                                var key = e.which;
+
+                                if (key == 37)
+                                    scope.page=scope.page-1<1?element.children("ul").children("li").length:scope.page-1; // Left
+                                else if (key == 39)
+                                    scope.page=scope.page+1>element.children("ul").children("li").length?1:scope.page+1; // Right
+                                else if (key == 27)
+                                    data.stop(); // Esc
+                                scope.$apply();
                             });
                             element.on("mousedown",function(event){
                                 if(_.contains($(event.target).attr("class").split(" "),"shortcut")){
@@ -49,11 +61,15 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                                         if(predictPage<0){
                                             predictPage=0;
                                         }
-                                        if(predictPage>4){
-                                            predictPage=4
+                                        if(predictPage>scope.items.length-1){
+                                            predictPage=scope.items.length-1
                                         }
-                                        scope.page = predictPage+1;
-                                        data.to(predictPage);
+                                        if(scope.page == predictPage+1){
+                                            data.stop().to(predictPage);
+                                        }else{
+                                            scope.page = predictPage+1;
+                                        }
+                                        scope.$apply();
                                         $(this).off("mousemove");
                                     }).one("mouseleave",function(){
                                         $(this).trigger("mouseup");

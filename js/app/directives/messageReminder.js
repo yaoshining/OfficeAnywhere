@@ -1,0 +1,25 @@
+/**
+ * Created by 世宁 on 14-2-20.
+ */
+define(["modules/App"],function(app){
+    app.directive("messageReminder",function($timeout){
+        return {
+            restrict: "A",
+            templateUrl: "js/app/templates/MessageReminder.html",
+            replace: true,
+            link: function(scope,element){
+                scope.$on("messageReminder.show",function(){
+                    element.slideDown(1000,function(){
+//                        $timeout(function(){
+//                            element.slideUp(1000,function(){
+//                                $timeout(function(){
+//                                    scope.$broadcast("messageReminder.show");
+//                                },4000);
+//                            });
+//                        },4000);
+                    });
+                });
+            }
+        }
+    });
+});

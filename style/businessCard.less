@@ -1,0 +1,53 @@
+.business-card {
+  background-color: #ffffff;
+  border: 1px solid rgb(239,230,189);
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  width: 300px;
+  left: -310px;
+  opacity: 0.95;
+  z-index: 999;
+  .left-slip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: red;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  .user-info {
+    padding: 10px 10px 10px 20px;
+    display: inline-block;
+    width: 100%;
+    .user-photo {
+      display: inline-block;
+      float: left;
+      width: 85px;
+      height: 85px;
+      background: url("../images/user-photo.png") no-repeat;
+    }
+    .user-info-text {
+      display: inline-block;
+      float: left;
+      margin-left: 10px;
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li.business-card-name {
+          color: rgb(197,0,0);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .motto {
+    clear: both;
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+
+}

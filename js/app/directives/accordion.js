@@ -1,8 +1,8 @@
 /**
  * Created by 世宁 on 14-1-10.
  */
-define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/DropdownMenus'],function(app){
-    app.directive('tree',function(DropdownMenus,$rootScope,$log){
+define(['modules/App','ztree.core','ztree.exedit','css!style/css/zTreeStyle','less!style/dropdownMenu','factories/DropdownMenus'],function(app){
+    app.directive('menuTree',function(DropdownMenus,$rootScope,$log){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/DropdownMenus.html",
@@ -129,12 +129,12 @@ define(['modules/App','ztree.core','css!style/css/zTreeStyle','factories/Dropdow
                     zTree.expandNode(treeNode, null, null, null, true);
                     if(!treeNode.isParent){
                         if(treeNode.url){
-                            $("#north").scope().newTab({id:treeNode.id,name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
+//                            $("#north").scope().newTab({id:treeNode.id,name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
+                            $rootScope.$broadcast("tab.open",{id:treeNode.id,name:treeNode.name,url: treeNode.url,iframe: treeNode.iframe},true);
                             $(document).trigger('click.dropdown');
                         }
                     }
                 }
-
 
 //                treeObj.hover(function () {
 //                    if (!treeObj.hasClass("showIcon")) {

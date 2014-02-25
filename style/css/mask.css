@@ -13,20 +13,21 @@ html,body {
     left: 0;
     z-index: 9999999;
     background-color: #ffffff;
+    text-align: center;
 }
 #loadingIndicator {
     position: absolute;
     width: 300px;
-    height: 300px;
+    height: 112px;
     left: 50%;
     top: 50%;
     margin-left: -150px;
-    margin-top: -150px;
-    border: 1px dashed #000000;
+    margin-top: -56px;
 }
 #loadingIndicator .loading-img{
     background: url('../../images/loading.gif');
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
+    background-size: 64px;
 }

@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-13.
  */
-define(['modules/App','controllers/appCtrl','directives/togglepanel','directives/messagebox'],function(app){
+define(['modules/App','controllers/appCtrl','directives/togglepanel','directives/messagebox','directives/slogan'],function(app){
     app.directive('layout',function($timeout,$rootScope,$log){
         return {
             restrict: "A",

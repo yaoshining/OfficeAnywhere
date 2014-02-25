@@ -2,20 +2,8 @@
     <div class="indicator_wrapper" style="position: fixed;left: 50%;margin-left: -132px;">
         <div id="indicatorContainer" class="indicator_container">
             <a ng-repeat="desktop in items" class="indicator indicator_{{desktop.page}}" href="javascript:void(0)" ng-click="paginate(desktop.page)">
-                <span class="indicator_icon indicator_icon{{desktop.page}}"></span>
+                <span class="indicator_icon indicator_icon{{desktop.page}} {{desktop.page==page?'active':''}}"></span>
             </a>
-            <!--<a class="indicator indicator_2" href="javascript:void(0)" ng-click="page=2">
-                <span class="indicator_icon indicator_icon2"></span>
-            </a>
-            <a class="indicator indicator_3" href="javascript:void(0)" ng-click="page=3">
-                <span class="indicator_icon indicator_icon3"></span>
-            </a>
-            <a class="indicator indicator_4" href="javascript:void(0)" ng-click="page=4">
-                <span class="indicator_icon indicator_icon4"></span>
-            </a>
-            <a class="indicator indicator_5" href="javascript:void(0)" ng-click="page=5">
-                <span class="indicator_icon indicator_icon5"></span>
-            </a>-->
             <a class="indicator indicator_manager" href="javascript:void(0)" ng-click="openManage()">
             </a>
         </div>

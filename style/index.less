@@ -10,6 +10,9 @@
 @menuBarBgImage: "../images/menubar_pixel.png";
 @menuBarShadowImage: "../images/menubar_shadow.png";
 @tabActiveBgImage: "../images/tab_active_pixel.png";
+@indicatorBgImage: "../images/indicatorBg_pixel.png";
+@indicatorIcon: "../images/indicator_icon.png";
+@indicatorHover: "../images/indicator_hover.png";
 @tabBgImage: "../images/tabBg_pixel.png";
 @shortcutTitle: "../images/title_pixel.png";
 @startMenuImage: "../images/startmenu_bg.png";
@@ -17,6 +20,7 @@
 @tabCloseOn: "../images/tabs_close_moveon.png";
 @tabClose: "../images/tabs_close.png";
 @loadingImg: "../images/loading.gif";
+@toggleButtonBg: "../images/togglePanel_button.png";
 .disable-select (@select: none) {
   -webkit-user-select: @select;
   -moz-user-select: @select;
@@ -39,7 +43,23 @@ html,body {
 }
 .pane-south {
   color: #ffffff;
-  text-indent: 20px;
+  .slogan {
+    .animate-show {
+      -webkit-transition:all linear 0.5s;
+      transition:all linear 0.5s;
+      line-height:20px;
+      opacity:1;
+    }
+    .animate-show.ng-hide-add,
+    .animate-show.ng-hide-remove {
+      display:block!important;
+    }
+    .animate-show.ng-hide {
+      line-height:0;
+      opacity:0;
+      padding:0 10px;
+    }
+  }
 }
 .left_pattern {
   display: inline-block;
@@ -107,7 +127,6 @@ html,body {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default{
-//  background: url(@tabActiveBgImage) repeat;
   background-color: #fffcf0;
   color: #dd0801;
   box-shadow: none;
@@ -233,74 +252,92 @@ html,body {
 }
 .indicator_wrapper {
   width: 264px;
-  height: 39px;
+  height: 25px;
   display: inline-block;
-  background: url("../images/sprite_main_png.png") no-repeat -140px -5px;
+//  background: url("../images/sprite_main_png.png") no-repeat -140px -5px;
+  background: url(@indicatorBgImage) repeat;
   margin-top: 30px;
   z-index: 2;
+  border-radius: 4px;
   a{
     cursor: hand;
   }
-}
-.indicator_container {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-.indicator {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  float: left;
-  position: relative;
-  margin: 4px 2px 0;
-}
-.indicator_icon {
-  width: 100%;
-  height: 100%;
-  background: url("../images/sprite_main_png.png");
-  display: inline-block;
-}
-.indicator_icon1 {
-  background-position: -336px -132px;
-}
-.indicator_icon1:hover {
-  background-position: -140px -132px;
-}
-.indicator_icon2 {
-  background-position: -366px -132px;
-}
-.indicator_icon2:hover {
-  background-position: -180px -132px;
-}
-.indicator_icon3 {
-  background-position: -396px -132px;
-}
-.indicator_icon3:hover {
-  background-position: -220px -132px;
-}
-.indicator_icon4 {
-  background-position: -426px -132px;
-}
-.indicator_icon4:hover {
-  background-position: -260px -132px;
-}
-.indicator_icon5 {
-  background-position: -456px -132px;
-}
-.indicator_icon5:hover {
-  background-position: -300px -132px;
-}
-.indicator_manager{
-  float: right;
-  width: 24px;
-  height: 24px;
-  background: url("../images/sprite_main_png.png");
-  background-position: -132px -157px;
-  margin: 2px 5px;
-}
-.indicator_manager:hover{
-  background-position: -207px -157px;
+  .indicator_container {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+  .indicator {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin: 4px 5px 0;
+    .indicator_icon {
+      width: 100%;
+      height: 100%;
+/*      background: url("../images/sprite_main_png.png");*/
+      background: url(@indicatorIcon);
+      display: inline-block;
+    }
+    .indicator_icon:hover,
+    .indicator_icon.active,
+    .indicator_icon:active {
+      background: url(@indicatorHover);
+    }
+    /*.indicator_icon1{
+      background-position: -336px -132px;
+    }
+    .indicator_icon1:hover,
+    .indicator_icon1.active,
+    .indicator_icon1:active {
+      background-position: -140px -132px;
+    }
+    .indicator_icon2 {
+      background-position: -366px -132px;
+    }
+    .indicator_icon2:hover,
+    .indicator_icon2.active,
+    .indicator_icon2:active{
+      background-position: -180px -132px;
+    }
+    .indicator_icon3 {
+      background-position: -396px -132px;
+    }
+    .indicator_icon3:hover,
+    .indicator_icon3:active,
+    .indicator_icon3.active{
+      background-position: -220px -132px;
+    }
+    .indicator_icon4 {
+      background-position: -426px -132px;
+    }
+    .indicator_icon4:hover,
+    .indicator_icon4:active,
+    .indicator_icon4.active{
+      background-position: -260px -132px;
+    }
+    .indicator_icon5 {
+      background-position: -456px -132px;
+    }
+    .indicator_icon5:hover,
+    .indicator_icon5:active,
+    .indicator_icon5.active{
+      background-position: -300px -132px;
+    }*/
+  }
+  .indicator_manager{
+    float: right;
+    width: 24px;
+    height: 24px;
+    background: url("../images/sprite_main_png.png");
+    background-position: -132px -157px;
+    margin: 2px 5px;
+  }
+  .indicator_manager:hover{
+    background-position: -207px -157px;
+  }
 }
 .my-calendar{
   display: inline-block;
@@ -308,6 +345,8 @@ html,body {
   color: #ffffff;
   width: 200px;
   margin: 5px 10px;
+  .disable-select;
+  cursor: default;
   .solar-date {
     display: inline-block;
     float: left;
@@ -336,58 +375,33 @@ html,body {
     text-align: right;
   }
 }
-#dropdown-1 {
-  .dropdown-panel {
-    background-color: #c50000;
-    opacity: 0.9;
-    .user-info {
-      color: #ffffff;
-      height: 56px;
-      .user-head {
-        width: 47px;
-        height: 43px;
-        display: inline-block;
-        background: url("../images/user-head.png");
-      }
-    }
-    .menu-tree {
-      background-color: #ffffff;
-      overflow-x: hidden;
-      overflow-y: auto;
-      .ztree li a {
-        color: #c50000;
-      }
-    }
-    .ztree li a.level0 span {
-      font-size: 110%;
-    }
-  }
-}
+
 #togglePanel {
   display: inline-block;
   width: 240px;
   height: 100%;
-  background-color: #ffffff;
+  background-color: transparent;
   position: absolute;
   right: -240px;
   top: 0;
-  border: 1px solid #C50000;
+  border: 1px solid rgb(239,230,189);
   .toggleButton {
     position: absolute;
-    width: 20px;
-    left: -20px;
-    height:60px;
-    top: 0;
+    width: 6px;
+    left: -6px;
+    height:84px;
+    top: 50%;
+    margin-top: -42.5px;
     font-size: 12px;
     text-align: center;
-    border: 1px solid #C50000;
     background-color: #C50000;
+    background: url(@toggleButtonBg);
     color: #ffffff;
     cursor: pointer;
     .button-name{
       width: 100%;
       display: inline-block;
-      margin-top: 14px;
+      line-height: 84px;
     }
   }
 }
@@ -422,6 +436,17 @@ html,body {
   width: 200px;
   height: 251px;
 }
+/*.indicator_icon_bg {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  z-index: -1;
+  top: 1px;
+  left: -6px;
+  display: inline-block;
+  background: url("../images/sprite_main_png.png");
+  background-position: -361px -162px;
+}*/
 //.loading{
 //  background: url(@loadingImg) no-repeat;
 //  background-size: 64px;

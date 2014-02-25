@@ -1,0 +1,19 @@
+<div id="messenger" messenger>
+    <div id="title" style="width: 100%;height: 30px;line-height: 30px;border-bottom: 1px solid rgb(239,230,189);text-indent: 2em;font-size: 16px;color: #C50000">通达OA精灵</div>
+<!--    <ul id="orgTree" class="ztree"></ul>-->
+    <div id="tabs" tabs>
+        <ul>
+            <li class="messenger_tab_org"><a href="#tabs-1"></a></li>
+            <li class="messenger_tab_history"><a href="#tabs-2"></a></li>
+            <li class="messenger_tab_add"><a href="js/app/templates/App.html"></a></li>
+        </ul>
+        <div>
+            <div id="tabs-1"><ul id="orgTree" class="ztree"></ul></div>
+            <div id="tabs-2">asdfasaf</div>
+        </div>
+        <div ng-repeat="card in cards" ng-include="businessCard.templateUrl" ng-show="card.show"></div>
+    </div>
+
+    <div message-reminder></div>
+    <div ng-repeat="box in chatBoxes" ng-include="chatBox.templateUrl" ng-show="box.show"></div>
+</div>

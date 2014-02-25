@@ -30,6 +30,7 @@ define(['modules/App','underscore','services/centerService'] , function (app) {
                 this.history = _.filter(this.history,function(item){
                     return item.id!=menu.id;
                 });
+                centerService.close(menu);
                 if(this.history.length>0){
                     var previous = this.history.pop();
                     centerService.open(previous,false);
@@ -38,8 +39,6 @@ define(['modules/App','underscore','services/centerService'] , function (app) {
                     var previous = this.menus[0];
                     centerService.open(previous,false);
                     this.active(previous);
-                }else{
-                    centerService.close();
                 }
             }
         };

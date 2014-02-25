@@ -12,8 +12,11 @@
             <a type="button" class="btn btn-default">个人事务</a>-->
         </div>
         <div style="position: absolute;right: 10px;display: inline-block;height: 20px;line-height: 20px;bottom: 10px;">
+            <i class="fa fa-expand" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer" ng-click="toggleFullScreen()"></i>
+            <i class="fa fa-refresh" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer"></i>
             <i class="fa fa-key" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer" ng-click="logout()"></i>
-            <span class="glyphicon glyphicon-cog" style="font-size: 20px;color: #ffffff;cursor: pointer"></span>
+            <i class="fa fa-gear" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer"></i>
+            <!--<span class="glyphicon glyphicon-cog" style="font-size: 20px;color: #ffffff;cursor: pointer"></span>-->
         </div>
     </div>
     <div id="menuBar">
@@ -35,7 +38,7 @@
             <div class="user-head"></div>
             <h4 style="display: inline-block">{{userInfo[0].name}}</h4>
         </div>
-        <div class="menu-tree" tree></div>
+        <div class="menu-tree" menu-tree></div>
         <!--<ul>
             <li ng-repeat="menu in dropdownMenus" ng-click="newTab(menu)">{{ menu.name }}</li>
         </ul>-->

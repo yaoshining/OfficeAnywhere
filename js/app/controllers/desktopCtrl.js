@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-3.
  */
 define(['angular','modules/App','factories/Item','services/centerService','fancybox','css!style/css/jquery.fancybox'] , function (angular,app) {
-    app.controller('desktopCtrl' , function ($scope,Item,$log) {
+    app.controller('desktopCtrl' , function ($scope,Item,$log,$rootScope) {
         var items = Item.query(function(){
 //            console.log($rootElement);
             $log.debug("Loaded "+items.length+" desktops from server:\n"+JSON.stringify(items));
@@ -10,7 +10,7 @@ define(['angular','modules/App','factories/Item','services/centerService','fancy
         $scope.page = 1;
         $scope.items = items;
         $scope.openTab = function(item,apply){
-            $("#north").scope().newTab(item,apply);
+            $rootScope.$broadcast("tab.open",item,apply);
         };
         $scope.paginate = function(page){
           $log.debug("Change page to "+page);

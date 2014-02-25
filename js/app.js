@@ -16,10 +16,13 @@ requirejs.config({
         "services": "../app/services",
         "factories": "../app/factories",
         "templates": "../app/templates",
+        "others": "../app/others",
         "jquery": "jquery-1.8.3.min",
         "jquery-ui": "jquery-ui-1.9.2.custom.min",
         "fancybox": "jquery.fancybox",
+        "emojiarea": "jquery.emojiarea",
         "layout": "jquery.layout-latest",
+        "emojis": "../app/others/emojis",
         "style": "../../style"
     },
     shim: {
@@ -34,9 +37,19 @@ requirejs.config({
             deps: ["jquery"],
             exports:"jQuery.fn.layout"
         },
+        "emojiarea": {
+            deps: ["jquery"],
+            exports:"jQuery.fn.emojiarea"
+        },
+        "emojis": {
+            deps: ["jquery","emojiarea"]
+        },
         "ztree.core":{
             deps: ["jquery"],
             exports: "jQuery.fn.zTree"
+        },
+        "ztree.exedit":{
+            deps: ["jquery","ztree.core"]
         },
         'angular': {
             exports: "angular"
@@ -48,6 +61,9 @@ requirejs.config({
             deps: ['angular']
         },
         'angular-route': {
+            deps: ['angular']
+        },
+        'angular-lazyload': {
             deps: ['angular']
         },
         'jquery.dropdown': {
@@ -69,13 +85,13 @@ requirejs.config({
         }
     }
 });
-requirejs(["less!style/index.less","less!style/font-awesome/less/font-awesome","css!style/css/bootstrap"],function(){
+requirejs(["es5-shim","less!style/index","less!style/font-awesome/less/font-awesome","css!style/css/bootstrap"],function(){
     loadingPhrase.innerHTML = "正在载入js核心库...";
     setTimeout(function(){
-        require(["jquery-ui","json2","es5-shim","underscore"],function(){
+        requirejs(["json2","jquery","underscore"],function(){
             loadingPhrase.innerHTML = "正在载入子模块...";
             setTimeout(function(){
-                require(["app/main"],function(){
+                requirejs(["app/main"],function(){
                     loadingPhrase.innerHTML = "正在初始化...";
                 });
             },0);

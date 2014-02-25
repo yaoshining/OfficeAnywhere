@@ -18,6 +18,9 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
             Menus.active(item);
             centerService.open(item,apply);
         };
+        $scope.$on("tab.open",function(e,item,apply){
+            $scope.newTab(item,apply);
+        });
         window.newTab = function(item,apply){
             $scope.newTab(item,apply);
         };
@@ -27,6 +30,11 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
 //            centerService.close();
             $("#startMenu").dropdown("hide");
         };
+        requirejs(["jquery.fullscreen"],function(){
+            $scope.toggleFullScreen = function(){
+                    $(document).toggleFullScreen();
+            }
+        });
         $("#startMenu").dropdown();
     }]);
 });

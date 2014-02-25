@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-15.
  */
-define(['modules/App'],function(app){
+define(['modules/App','jquery'],function(app){
     app.directive('shader',function($rootScope){
         return {
             restrict: "A",
