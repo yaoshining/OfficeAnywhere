@@ -5,7 +5,7 @@ define(["modules/App"],function(app){
     app.directive("slogan",function($interval){
         return {
             restrict: "A",
-            template: '<span ng-repeat="text in slogans" class="animate-show" ng-show="currentIndex==$index">{{text}}</span>',
+            template: '<span ng-repeat="text in slogans" style="cursor: default" class="animate-show" ng-show="currentIndex==$index">{{text}}</span>',
             link: function(scope,elements){
                 scope.currentIndex = 0;
                 scope.slogans = ["规范化的管理运营，专业化的营销推广","通达T9Pro正式版发布，是一个新的起点","asdasdasdasd","jkhjkhjkhjkhjk"];

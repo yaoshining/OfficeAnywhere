@@ -66,6 +66,9 @@ requirejs.config({
         'angular-lazyload': {
             deps: ['angular']
         },
+        'modules/sortable': {
+            deps: ['angular']
+        },
         'jquery.dropdown': {
             deps: ['jquery'],
             exports:"jQuery.fn.dropdown"

@@ -7,7 +7,7 @@
     <div id="menuNav" style="display: block;width: 100%;height: 45px;position: relative;">
         <div id="startMenu" data-dropdown="#dropdown-1"><i class="fa fa-home" style="font-size: 20px"></i>菜单</div>
         <div class="menu">
-            <a type="button" class="btn btn-default {{menu.active?'active':''}}" ng-repeat="menu in menus" href="javascript:void(0)" ng-click="newTab(menu,false)">{{ menu.name }}<span class="close-icon" title="关闭" ng-click="closeTab($event,menu)"></span></a>
+            <a type="button" class="btn btn-default {{menu.active?'active':''}}" ng-repeat="menu in menus" ng-href="" ng-click="newTab(menu,false)">{{ menu.name }}<span class="close-icon" title="关闭" ng-click="closeTab($event,menu)"></span></a>
         </div>
         <div style="position: absolute;right: 10px;display: inline-block;height: 20px;line-height: 20px;bottom: 10px;">
             <i class="fa fa-expand" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer" ng-click="toggleFullScreen()"></i>

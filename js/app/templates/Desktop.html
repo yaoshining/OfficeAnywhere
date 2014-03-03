@@ -1,7 +1,7 @@
 <div id="indicator">
     <div class="indicator_wrapper" style="position: fixed;left: 50%;margin-left: -132px;">
         <div id="indicatorContainer" class="indicator_container">
-            <a ng-repeat="desktop in items" class="indicator indicator_{{desktop.page}}" href="javascript:void(0)" ng-click="paginate($index+1)">
+            <a ng-repeat="desktop in items" class="indicator indicator_{{desktop.page}}" ng-href="" ng-click="paginate($index+1)">
                 <span class="indicator_icon indicator_icon{{desktop.page}} {{$index+1==page?'active':''}}"></span>
             </a>
             <a class="indicator indicator_manager" href="javascript:void(0)" ng-click="openManage()" title="打开桌面管理工具">
