@@ -1,39 +1,31 @@
 /**
  * Created by 世宁 on 14-1-8.
  */
-define(['modules/App','directives/sortable'],function(app){
-    app.directive('shortcuts',function($timeout){
+define(['modules/App'],function(app){
+    app.directive('shortcuts',function($timeout,$log){
         return {
             restrict: "A",
             link: function(scope,element){
-                $timeout(function(){
-                    element.find(".shortcut").on("mousedown",function(e){
-                        if(e.which!=1){
-                          return;
-                        }
-                        var sort = false;
-                        var delay = setTimeout(function(){
-                            sort =true;
-                        },2000);
-                        var isDrag = false;
-                        $(this).one("mousemove",function(e){
-                            clearTimeout(delay);
-                            if(sort){
-                                e.stopPropagation();
-                            }
-                            isDrag = true;
-                        });
-                        $(this).one("mouseup",function(){
-                            clearTimeout(delay);
-                            if(!isDrag){
-                                var shortcut = scope.items[scope.page-1].shortcuts[$(this).closest("li").index()];
-                                if(shortcut.url){
-                                    scope.openTab(shortcut,true);
-                                }
-                            }
-                        });
-                    });
-                },500);
+                element.on("mousemove",function(event){
+                    var targetGroup = event ? $(event.target).parents().addBack() : null;
+                    if(targetGroup && targetGroup.is("li.repeated-item")){
+                        $(this).find("ul[ui-sortable]").sortable("disable");
+                    }
+                    if($(event.target).is(".shortcut")) {
+                        $(this).find("ul[ui-sortable]").sortable("enable");
+                    }
+                });
+            },
+            controller: function($scope,$element){
+                var items = $scope.desktop.shortcuts;
+                $scope.shortcutsSortableOptions = {
+                    stop: function(e, ui) {
+                        var logEntry = items.map(function(i,k){
+                            return JSON.stringify(i);
+                        }).join(', ');
+                        $log.debug(logEntry);
+                    }
+                };
             }
         };
     });

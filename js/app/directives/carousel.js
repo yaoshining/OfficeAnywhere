@@ -17,20 +17,45 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                     post: function postLink(scope, element, iAttrs, controller) {
                         element.css("visibility","hidden");
                         $timeout(function(){
+                            scope.$watch(function(){
+                                return element.find(".desktop").length;
+                            },function(){
+                                element.find(".desktop").height($("#center").height()).droppable({
+                                    accept: ".menu-node",
+                                    drop: function(event, ui){
+                                        var menu = ui.helper.data("menu");
+                                        scope.$apply(function(){
+                                            scope.items[scope.page-1].shortcuts.push({
+                                                id: menu.id,
+                                                name: menu.name,
+                                                url: menu.url,
+                                                iframe: menu.iframe,
+                                                img: menu.img
+                                            });
+                                        });
+                                    }
+                                });
+                                element.find(".shortcutPane").css("margin-top",0-element.find(".shortcutPane").height()/2+"px");
+                            });
                             element.find(".desktop").height($("#center").height());
+                            element.find(".shortcutPane").css("margin-top",0-element.find(".shortcutPane").height()/2+"px");
                             scope.$on("layout.center.resize",function(e,h,w){
                                 element.height(h);
                                 element.find(".desktop").height(h);
                                 element.width(w);
                                 element.children("ul").children("li").width(w);
                             });
-                            element.find(".shortcutPane").css("margin-top",0-element.find(".shortcutPane").height()/2+"px");
                             var slidey = element.unslider({
                                 dots: false,
                                 autoplay: false,
                                 keys: false
                             }).css("visibility","visible");
                             var data = slidey.data('unslider');
+                            scope.$watch(function(){
+                                return element.children().first().find("> li").length;
+                            },function(newValue,oldValue,scope){
+                                data.refresh();
+                            });
                             scope.$watch('page',function(newValue){
                                 console.log(newValue);
                                 data.stop().to(newValue-1);
@@ -47,7 +72,7 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                                 scope.$apply();
                             });
                             element.on("mousedown",function(event){
-                                if(_.contains($(event.target).attr("class").split(" "),"shortcut")){
+                                if($(event.target).is(".shortcut")){
                                     return false;
                                 }
                                 var ox = event.pageX;

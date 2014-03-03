@@ -119,6 +119,9 @@ html,body {
   font-size: 16px;
   background: url(@startMenuImage);
 }
+.btn {
+  border-radius: 0px;
+}
 .btn-default {
   color: #ffffff;
 }
@@ -127,9 +130,9 @@ html,body {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default{
-  background-color: #fffcf0;
-  color: #dd0801;
-  box-shadow: none;
+  background-color: #fffcf0 !important;
+  color: #dd0801 !important;
+  box-shadow: none !important;
 }
 .menu {
   display: inline-block;
@@ -165,9 +168,19 @@ html,body {
     position: absolute;
     right: 8px;
     top: 8px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
   }
   .close-icon:hover {
     background-image: url(@tabCloseOn);
+    transform: scale(1) rotate(360deg);
+    -ms-transform: scale(1) rotate(360deg);
+    -moz-transform: scale(1) rotate(360deg);
+    -webkit-transform: scale(1) rotate(360deg);
+    -o-transform: scale(1) rotate(360deg);
   }
 }
 #menuBar {
@@ -193,6 +206,7 @@ html,body {
   position: relative;
   top: 50%;
   text-align: left;
+  min-height: 300px;
   ul{
     position: relative;
     display: inline-block;
@@ -218,6 +232,8 @@ html,body {
         //background-color: @shortcutColor;
         background-repeat: no-repeat;
         background-size: cover;
+        /*-webkit-transition: all 10s ease-out;
+        -webkit-transform: rotate3d(100,200,300,360deg);*/
       }
       div.shortcut-title {
         text-align: center;
@@ -286,46 +302,6 @@ html,body {
     .indicator_icon:active {
       background: url(@indicatorHover);
     }
-    /*.indicator_icon1{
-      background-position: -336px -132px;
-    }
-    .indicator_icon1:hover,
-    .indicator_icon1.active,
-    .indicator_icon1:active {
-      background-position: -140px -132px;
-    }
-    .indicator_icon2 {
-      background-position: -366px -132px;
-    }
-    .indicator_icon2:hover,
-    .indicator_icon2.active,
-    .indicator_icon2:active{
-      background-position: -180px -132px;
-    }
-    .indicator_icon3 {
-      background-position: -396px -132px;
-    }
-    .indicator_icon3:hover,
-    .indicator_icon3:active,
-    .indicator_icon3.active{
-      background-position: -220px -132px;
-    }
-    .indicator_icon4 {
-      background-position: -426px -132px;
-    }
-    .indicator_icon4:hover,
-    .indicator_icon4:active,
-    .indicator_icon4.active{
-      background-position: -260px -132px;
-    }
-    .indicator_icon5 {
-      background-position: -456px -132px;
-    }
-    .indicator_icon5:hover,
-    .indicator_icon5:active,
-    .indicator_icon5.active{
-      background-position: -300px -132px;
-    }*/
   }
   .indicator_manager{
     float: right;
@@ -436,18 +412,3 @@ html,body {
   width: 200px;
   height: 251px;
 }
-/*.indicator_icon_bg {
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  z-index: -1;
-  top: 1px;
-  left: -6px;
-  display: inline-block;
-  background: url("../images/sprite_main_png.png");
-  background-position: -361px -162px;
-}*/
-//.loading{
-//  background: url(@loadingImg) no-repeat;
-//  background-size: 64px;
-//}

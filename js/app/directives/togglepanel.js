@@ -6,6 +6,7 @@ define(['modules/App','factories/TogglePanel',"directives/messenger"],function(a
         return {
             restrict: "A",
             link: function(scope,element){
+                scope.href = "js/app/templates/Messenger.html";
                 $(function(){
                     var togglePanel = TogglePanel.query(function(){
                         scope.togglePanel = togglePanel[0];

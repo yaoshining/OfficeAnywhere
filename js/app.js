@@ -85,7 +85,7 @@ requirejs.config({
         }
     }
 });
-requirejs(["es5-shim","less!style/index","less!style/font-awesome/less/font-awesome","css!style/css/bootstrap"],function(){
+requirejs(["others/console.ad","es5-shim","less!style/index","less!style/font-awesome/less/font-awesome","css!style/css/bootstrap"],function(){
     loadingPhrase.innerHTML = "正在载入js核心库...";
     setTimeout(function(){
         requirejs(["json2","jquery","underscore"],function(){

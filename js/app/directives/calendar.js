@@ -36,7 +36,7 @@ define(['modules/App'],function(app){
 //                                element.find(".weather > div:last").text(temperature);
 //                            }
 //                        });
-                        var url = "http://api.map.baidu.com/telematics/v2/weather?location="+encodeURI(data.content.address)+"&ak="+ak+"&output=json";
+                        var url = "http://api.map.baidu.com/telematics/v2/weather?location="+encodeURI(data.content.address_detail.city)+"&ak="+ak+"&output=json";
                         var queryWeather = function(){
                             $.getJSON("http://query.yahooapis.com/v1/public/yql", {
                                 q: "select * from json where url=\""+url+"\"",

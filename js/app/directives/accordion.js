@@ -34,6 +34,7 @@ define(['modules/App','ztree.core','ztree.exedit','css!style/css/zTreeStyle','le
                     },
                     callback: {
                         beforeExpand: beforeExpand,
+                        onNodeCreated: onNodeCreated,
                         onExpand: onExpand,
                         onClick: onClick
                     }
@@ -135,7 +136,21 @@ define(['modules/App','ztree.core','ztree.exedit','css!style/css/zTreeStyle','le
                         }
                     }
                 }
-
+                function onNodeCreated(event, treeId, treeNode){
+                    if(!treeNode.isParent){
+                        $("#"+treeNode.tId+"_a").draggable({
+                            helper: function(){
+                                return $("<div>").css({
+                                    "background": "url('"+treeNode.img+"') no-repeat",
+                                    "background-size": "cover",
+                                    "display": "inline-block",
+                                    "width": "100px",
+                                    "height": "100px"
+                                }).data("menu",treeNode);
+                            }
+                        }).addClass("menu-node");
+                    }
+                }
 //                treeObj.hover(function () {
 //                    if (!treeObj.hasClass("showIcon")) {
 //                        treeObj.addClass("showIcon");

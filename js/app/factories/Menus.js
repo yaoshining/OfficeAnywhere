@@ -1,5 +1,6 @@
 /**
  * Created by 世宁 on 14-1-8.
+ * This factory is use to get the json format configurations of the tab menus in the page belongs to the current login user.
  */
 define(['modules/App','underscore','services/centerService'] , function (app) {
     app.factory('Menus' , ['$resource' ,'centerService','$log', function ($resource,centerService,$log) {

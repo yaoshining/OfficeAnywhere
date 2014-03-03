@@ -185,7 +185,9 @@
 		_.prev = function() {
 			return _.stop().to(_.i - 1);
 		};
-
+        _.refresh = function(){
+            _ = _.init(_.el, _.o);
+        }
 		//  Create dots and arrows
 		function nav(name, html) {
 			if (name == 'dot') {

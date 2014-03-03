@@ -2,7 +2,7 @@
     <div class="chat-box-header">
         <div style="height: 40px">
             <div class="chat-box-photo"></div>
-            <div class="chat-box-title">与<span class="chat-box-name">魅影貂蝉</span>交谈中</div>
+            <div class="chat-box-title">与<span class="chat-box-name">{{box.to.name}}</span>交谈中</div>
         </div>
         <div class="chat-box-toolbar">
             <ul>
@@ -50,6 +50,28 @@
     </div>
     <div class="chat-box-bottom">
         <button>发送(S)</button>
-        <button ng-click="close()">关闭(C)</button>
+        <button ng-click="close(box)">关闭(C)</button>
+    </div>
+    <div id="chatEmotions">
+        <ul>
+            <li>
+                <img src="images/chat/emotions/angry.png" title="生气" />
+            </li>
+            <li>
+                <img src="images/chat/emotions/flushed.png" title="兴奋" />
+            </li>
+            <li>
+                <img src="images/chat/emotions/laughing.png" title="大笑" />
+            </li>
+            <li>
+                <img src="images/chat/emotions/neckbeard.png" title="大胡子" />
+            </li>
+            <li>
+                <img src="images/chat/emotions/smile.png" title="微笑" />
+            </li>
+            <li>
+                <img src="images/chat/emotions/sunglasses.png" title="耍酷" />
+            </li>
+        </ul>
     </div>
 </div>

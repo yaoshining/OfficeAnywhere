@@ -8,7 +8,28 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
            link: function(scope,element){
                scope.businessCard = {templateUrl: "js/app/templates/BusinessCard.html"};
                scope.chatBox = {templateUrl: "js/app/templates/ChatBox.html"};
-               scope.chatBoxes = [{show: true}];
+//               scope.chatBoxes = [{
+//                   id: 1,
+//                   to: {
+//                     id: 1,
+//                     name: "魅影貂蝉"
+//                   },
+//                   show: true
+//               }];
+               scope.chatBoxes = [];
+               scope.$on("chatbox.close",function(event,box){
+                   scope.chatBoxes.splice(_.indexOf(scope.chatBoxes, box),1);
+               });
+               scope.$on("chatbox.show",function(event,to){
+                    var newBox = {
+                        id: to.id,
+                        to: to,
+                        show: true
+                    };
+                   scope.$apply(function(){
+                       scope.chatBoxes.push(newBox);
+                   });
+               });
                var deferred = $q.defer();
                requirejs(['ztree.core','ztree.exedit','css!style/css/zTreeStyle','less!style/messenger','less!style/businessCard','underscore'],function(){
                    var setting = {
@@ -26,7 +47,8 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                            }
                        },
                        callback: {
-                           onClick: onClick
+                           beforeClick: beforeClick,
+                           onDblClick: onDblClick
                        }
                    };
                    var zNodes = [
@@ -85,6 +107,7 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                                         show: true,
                                         top: $("#"+treeNode.tId+"_a").position().top
                                     });
+                                    treeNode.user = user;
                                 });
                             }
                         }
@@ -96,8 +119,15 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                             });
                         }
                    }
-                   function onClick(event,treeId,treeNode,clickFlag){
-                       scope.$broadcast("businessCard.hide",treeNode.userId);
+                   function beforeClick(event, treeId, treeNode){
+                        if(!treeNode.isParent){
+                            return false;
+                        }
+                   }
+                   function onDblClick(event, treeId, treeNode){
+                        if(!treeNode.isParent){
+                            scope.$broadcast("chatbox.show",treeNode.user);
+                        }
                    }
                    var t = element.find("#orgTree");
                    t = $.fn.zTree.init(t, setting, zNodes);

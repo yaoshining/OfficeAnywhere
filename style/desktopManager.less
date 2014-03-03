@@ -1,0 +1,157 @@
+@charset "UTF-8";
+@outerPadding: 5px;
+.disable-select (@select: none) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  user-select: @select;
+}
+#desktopManager {
+  width: 730px;
+  height: 440px;
+  overflow: hidden;
+  #tabs{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    ul.ui-tabs-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      width: 100%;
+      height: 44px;
+//      line-height: 30px;
+      border-bottom: 3px solid rgb(196,20,16);
+      padding: 0 @outerPadding;
+      li {
+        float: left;
+        margin: 5px 10px 0 0;
+        outline: none;
+        padding: 5px;
+        a{
+          color: rgb(196,20,16);
+          font-size: 16px;
+          font-weight: bold;
+          outline: none;
+          text-decoration: none;
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+      li:first-child {
+        margin-left: 10px;
+      }
+      li.ui-state-active {
+        background-color: rgb(196,20,16);
+        a{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  #tabs > div {
+    position: absolute;
+    top: 44px;
+    bottom: 0;
+    width: 100%;
+    padding: @outerPadding;
+    div#screenConfig{
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        li {
+          width: 33.33333333%;
+          height: 120px;
+          line-height: 100px;
+          float: left;
+          padding: 10px;
+          display: inline-block;
+          .screen-proxy{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(235,59,0);
+            border-radius: 10px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bolder;
+            font-family: sans-serif;
+            position: relative;
+            .disable-select;
+            .screen-remove{
+              position: absolute;
+              right: -10px;
+              top: -10px;
+              width: 24px;
+              height: 24px;
+              background: url("../images/screen-minus.png") no-repeat;
+              cursor: pointer;
+            }
+          }
+          .screen-proxy:hover {
+            font-size: 52px;
+          }
+          /*.screen-proxy.screen-add {
+            background-color: transparent;
+            border:2px dashed rgb(235,59,0);
+            color: rgb(235,59,0);
+            cursor: pointer;
+          }*/
+        }
+        li:hover {
+          cursor: move;
+        }
+        div.screen-add {
+          display: inline-block;
+          width: 33.33333333%;
+          height: 120px;
+          line-height: 100px;
+          padding: 10px;
+          float: left;
+          .screen-add-btn {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border:2px dashed rgb(235,59,0);
+            color: rgb(235,59,0);
+            cursor: pointer;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;
+            font-family: sans-serif;
+          }
+        }
+      }
+    }
+  }
+  .manager-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(196,20,16);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+  }
+  .manager-close-btn:hover {
+    transform: scale(1.3) rotate(360deg);
+    -ms-transform: scale(1.3) rotate(360deg);
+    -moz-transform: scale(1.3) rotate(360deg);
+    -webkit-transform: scale(1.3) rotate(360deg);
+    -o-transform: scale(1.3) rotate(360deg);
+  }
+}

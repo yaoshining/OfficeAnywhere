@@ -1,10 +1,9 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['angular','modules/App','factories/Item','services/centerService','fancybox','css!style/css/jquery.fancybox'] , function (angular,app) {
+define(['angular','modules/App','factories/Item','services/centerService','fancybox','css!style/css/jquery.fancybox','underscore'] , function (angular,app) {
     app.controller('desktopCtrl' , function ($scope,Item,$log,$rootScope) {
         var items = Item.query(function(){
-//            console.log($rootElement);
             $log.debug("Loaded "+items.length+" desktops from server:\n"+JSON.stringify(items));
         });
         $scope.page = 1;
@@ -18,53 +17,30 @@ define(['angular','modules/App','factories/Item','services/centerService','fancy
         };
         $scope.openManage = function(){
             $.fancybox.open({
-                href: "building.html",
-                type: "iframe",
-                padding: 5
+                href: "#desktopManager",
+//                type: "ajax",
+                padding: 0,
+                closeBtn: false
             });
         };
+        $scope.$on("desktop.add",function(){
+            var newPage = new Item({
+                page: $scope.items.length+1,
+                shortcuts: []
+            });
+            $scope.items.push(newPage);
+            newPage.$save(function(u, putResponseHeaders) {
+            });
+            $scope.paginate(newPage.page);
+        });
+        $scope.$on("desktop.remove",function(event,pageNum){
+            $scope.items.splice(_.indexOf($scope.items,_.findWhere($scope.items,{page: pageNum})),1);
+            _.map($scope.items,function(item){
+                if(item.page>pageNum){
+                    item.page--;
+                }
+                return item;
+            })
+        });
     })
-//    .animation('.repeated-item',function(){
-//            return {
-//                enter : function(element, done) {
-//                    element.css('opacity',0);
-//                    jQuery(element).animate({
-//                        opacity: 1
-//                    },2000,done);
-//
-//                    return function(isCancelled) {
-//                        if(isCancelled) {
-//                            jQuery(element).stop();
-//                        }
-//                    }
-//                },
-//                leave : function(element, done) {
-//                    element.css('opacity', 1);
-//                    jQuery(element).animate({
-//                        opacity: 0
-//                    }, done);
-//
-//                    return function(isCancelled) {
-//                        if(isCancelled) {
-//                            jQuery(element).stop();
-//                        }
-//                    }
-//                },
-//                move : function(element, done) {
-//                    element.css('opacity', 0);
-//                    jQuery(element).animate({
-//                        opacity: 1
-//                    }, done);
-//
-//                    return function(isCancelled) {
-//                        if(isCancelled) {
-//                            jQuery(element).stop();
-//                        }
-//                    }
-//                },
-//
-//                addClass : function(element, className, done) {},
-//                removeClass : function(element, className, done) {}
-//            }
-//        });
 });

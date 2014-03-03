@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-1-12.
  */
 define(['modules/App'],function(app){
-    app.directive('sortable',function(){
+    app.directive('sortable',function($rootScope){
         return {
             restrict: "A",
             scope: {
@@ -22,7 +22,7 @@ define(['modules/App'],function(app){
                         helper: "clone",
                         opacity: 0.5,
                         delay: 50,
-                        revert: true,
+//                        revert: true,
 //                    placeholder: "sortable-placeholder",
                         tolerance: "pointer",
                         start: function(event,ui){
@@ -37,9 +37,18 @@ define(['modules/App'],function(app){
 //                        console.log(end);
 //                        console.log(ui);
 //                        console.log(array);
-                            array.splice(end, 0,
-                                array.splice(start, 1)[0]);
+//                            array.splice(end, 0,
+//                                array.splice(start, 1)[0]);
 //                        scope.$apply();
+                        },
+                        update: function(event,ui){
+                            var start = ui.item.data('start'),
+                                end = ui.item.index();
+//                            $rootScope.$apply(function(){
+//                                array.splice(end, 0,
+//                                    array.splice(start, 1)[0]);
+//                            });
+                            return false;
                         }
                     });
                     element.disableSelection();

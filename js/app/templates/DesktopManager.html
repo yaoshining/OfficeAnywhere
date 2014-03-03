@@ -1,0 +1,28 @@
+<div id="desktopManager">
+    <div id="tabs" tabs>
+        <ul>
+            <li class="messenger_tab_org"><a href="#appConfig"><i class="fa fa-inbox"></i>应用设置</a></li>
+            <li class="messenger_tab_history"><a href="#screenConfig"><i class="fa fa-list-alt"></i>分屏设置</a></li>
+        </ul>
+        <div>
+            <div id="appConfig">
+                asdasd
+            </div>
+            <div id="screenConfig">
+                <ul ui-sortable="desktopSortableOptions" ng-model="items">
+                    <li ng-repeat="item in items" ng-mousemove="showRemoveBtn($index)" ng-mouseout="hideRemoveBtn()">
+                        <div class="screen-proxy">{{item.page}}<div class="screen-remove" ng-click="removeDesktop(item.page)" ng-show="removeBtnShowIndex==$index"></div></div>
+                    </li>
+                    <div class="screen-add">
+                        <div class="screen-add-btn" ng-click="addDesktop()">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="manager-close-btn" ng-click="closeManager()" title="关闭">
+        <i class="fa fa-times"></i>
+    </div>
+</div>

@@ -5,6 +5,9 @@ define(["modules/App"],function(app){
     app.directive("tabs",function(){
         return {
             restrict: "A",
+            scope: {
+              average: "="
+            },
             compile: function compile(tElement,tAttrs,transclude){
                 return {
                     pre: function preLink(scope, iElement, iAttrs, controller) {
@@ -13,8 +16,10 @@ define(["modules/App"],function(app){
                     post: function postLink(scope, element, iAttrs, controller) {
                         requirejs(["jquery-ui"],function(){
                             element.tabs();
-                            var tabs = element.find("li[role='tab']");
-                            tabs.width(element.width()/tabs.length);
+                            if(scope.average){
+                                var tabs = element.find("li[role='tab']");
+                                tabs.width(element.width()/tabs.length);
+                            }
                         });
                     }
                 }

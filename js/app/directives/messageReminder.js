@@ -2,12 +2,16 @@
  * Created by 世宁 on 14-2-20.
  */
 define(["modules/App"],function(app){
-    app.directive("messageReminder",function($timeout){
+    app.directive("messageReminder",function(){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/MessageReminder.html",
             replace: true,
             link: function(scope,element){
+                scope.from = {
+                  id: 2,
+                  name: "王雪栋"
+                };
                 scope.$on("messageReminder.show",function(){
                     element.slideDown(1000,function(){
 //                        $timeout(function(){
@@ -18,6 +22,9 @@ define(["modules/App"],function(app){
 //                            });
 //                        },4000);
                     });
+                });
+                element.click(function(){
+                    scope.$emit("chatbox.show",scope.from);
                 });
             }
         }
