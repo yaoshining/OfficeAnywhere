@@ -1,5 +1,6 @@
 /**
  * Created by 世宁 on 14-1-12.
+ * @Deprecate
  */
 define(['modules/App'],function(app){
     app.directive('sortable',function($rootScope){

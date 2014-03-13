@@ -30,11 +30,21 @@ define(['angular','modules/App','jquery.dropdown','css!style/css/jquery.dropdown
 //            centerService.close();
             $("#startMenu").dropdown("hide");
         };
+        $scope.minimized = false;
+        $scope.supportFullScreen = false;
         requirejs(["jquery.fullscreen"],function(){
             $scope.toggleFullScreen = function(){
                     $(document).toggleFullScreen();
             }
         });
+        $scope.closePane = function(){
+            $scope.$emit("layout.resize","north",72);
+            $scope.minimized = true;
+        }
+        $scope.openPane = function(){
+            $scope.$emit("layout.resize","north",149);
+            $scope.minimized = false;
+        }
         $("#startMenu").dropdown();
     }]);
 });

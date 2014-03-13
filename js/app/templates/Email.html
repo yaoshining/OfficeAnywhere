@@ -1,0 +1,391 @@
+<div class="email-panel" ng-controller="emailCtrl">
+    <!--<div class="nav-bar">
+    </div>-->
+    <div class="row email-content" scroll-bar="scrollBarOptions">
+        <div class="col-xs-12" style="margin-bottom: 20px">
+            <div class="tabbable">
+                <ul class="inbox-tabs nav nav-tabs">
+                    <li class="li-new-mail pull-right" ng-class="{active: active=='new'}">
+                        <div class="btn btn-success" ng-click="active='new'">
+                            <i class="fa fa-envelope"></i>
+                            <span>写邮件</span>
+                        </div>
+                    </li>
+                    <li ng-class="{active: active=='inbox'}">
+                        <a ng-click="active='inbox'">
+                            <i class="fa fa-inbox email-blue"></i>
+                            <span>收件箱</span>
+                        </a>
+                    </li>
+                    <li ng-class="{active: active=='sent'}">
+                        <a ng-click="active='sent'">
+                            <i class="fa fa-location-arrow email-orange"></i>
+                            <span>已发送</span>
+                        </a>
+                    </li>
+                    <li ng-class="{active: active=='draft'}">
+                        <a ng-click="active='draft'">
+                            <i class="fa fa-pencil email-green"></i>
+                            <span>草稿箱</span>
+                        </a>
+                    </li>
+                    <li class="tags-dropdown" ng-class="{open: tagsDropdown}">
+                        <a ng-href="" class="dropdown-toggle" ng-click="tagsDropdown=!tagsDropdown">
+                            <i class="fa fa-tags email-pink"></i>
+                            <span>标记<i class="fa fa-caret-down"></i></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-125">
+                            <li>
+                                <a ng-href="">
+                                    <span class="email-tag badge badge-pink"></span>
+                                    <span class="email-pink">标记#1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-href="">
+                                    <span class="email-tag badge badge-success"></span>
+                                    <span class="email-green">家庭</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-href="">
+                                    <span class="email-tag badge badge-info"></span>
+                                    <span class="email-blue">朋友</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-href="">
+                                    <span class="email-tag badge badge-gray"></span>
+                                    <span class="email-gray">工作</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane in active">
+                        <div class="message-container">
+                            <div id="message-list-navbar" class="message-navbar clearfix" ng-show="active=='inbox'">
+                                <div class="message-bar">
+                                    <div class="message-infobar">
+                                        <span style="color: #478fca;font-size: 150%">收件箱</span>
+                                        <span>(2 封未读的邮件)</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="messagebar-item-left">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <div class="filter-dropdown" ng-class="{open: filterDropdown}">
+                                            <a ng-href="" class="dropdown-toggle" ng-click="filterDropdown=!filterDropdown">
+                                                <i class="fa fa-caret-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-100">
+                                                <li>
+                                                    <a>全部选择</a>
+                                                </li>
+                                                <li>
+                                                    <a>全部取消</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a>未读</a>
+                                                </li>
+                                                <li>
+                                                    <a>已读</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="messagebar-item-right">
+                                        <div class="sorter-dropdown" ng-class="{open: sorter.dropdown}">
+                                            <a ng-href="" class="dropdown-toggle" ng-click="sorter.dropdown=!sorter.dropdown">
+                                                <span>排序</span>
+                                                <i class="fa fa-caret-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-100 pull-right">
+                                                <li>
+                                                    <a ng-click="sorter.order='date'">
+                                                        <i class="fa fa-check email-green" ng-style="{visibility: sorter.order=='date'?'visible':'hidden'}"></i>
+                                                        日期
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a ng-click="sorter.order='from'">
+                                                        <i class="fa fa-check email-green" ng-style="{visibility: sorter.order=='from'?'visible':'hidden'}"></i>
+                                                        发件人
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a ng-click="sorter.order='subject'">
+                                                        <i class="fa fa-check email-green" ng-style="{visibility: sorter.order=='subject'?'visible':'hidden'}"></i>
+                                                        主题
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="nav-search" ng-class="{minimized: navSearch.minimize}" ng-mouseover="navSearch.minimize=false" ng-mouseleave="navSearch.minimize=true">
+                                        <form class="form-search">
+                                            <span class="input-icon">
+                                                <input type="text" class="nav-search-input" placeholder="搜索收件箱..." />
+                                                <i class="fa fa-search nav-search-icon"></i>
+                                            </span>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="message-new-navbar" class="message-navbar clearfix" ng-show="active=='new'">
+                                <div class="message-bar">
+                                    <div class="message-toolbar">
+                                        <a ng-href="" class="btn btn-xs btn-message">
+                                            <i class="fa fa-save bigger-125"></i>
+                                            <span class="bigger-110">保存草稿</span>
+                                        </a>
+                                        <a ng-href="" class="btn btn-xs btn-message" ng-click="active='inbox'">
+                                            <i class="fa fa-times bigger-125"></i>
+                                            <span class="bigger-110">取消</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="message-item-bar">
+                                    <div class="messagebar-item-left">
+                                        <a ng-href="" class="btn-back-message-list" ng-click="active='inbox'">
+                                            <i class="fa fa-arrow-left email-blue"></i>
+                                            <b>返回</b>
+                                        </a>
+                                    </div>
+                                    <div class="messagebar-item-right">
+                                        <span class="btn-send-message">
+                                            <button type="button" class="btn btn-primary">
+                                                <span class="bigger-110">发送</span>
+                                                <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message-list-container">
+                                <div class="message-list" ng-show="active=='inbox'">
+                                    <div class="message-item message-unread">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <i class="fa fa-star email-orange2 message-star"></i>
+                                        <span class="sender" title="姚世宁">姚世宁</span>
+                                        <span class="time">1:33 pm</span>
+                                        <span class="summary">
+                                            <span class="text">点击打开此邮件</span>
+                                        </span>
+                                    </div>
+                                    <div class="message-item message-unread">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <i class="fa fa-star-o email-light-gray message-star"></i>
+                                        <span class="sender" title="姚世宁">姚世宁</span>
+                                        <span class="time">7:15 pm</span>
+                                        <span class="attachment">
+                                            <i class="fa fa-paperclip"></i>
+                                        </span>
+                                        <span class="summary">
+                                            <span class="badge badge-pink email-tag"></span>
+                                            <span class="text">在当前位置打开此邮件</span>
+                                        </span>
+                                    </div>
+                                    <div class="message-item">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <i class="fa fa-star-o email-light-gray message-star"></i>
+                                        <span class="sender" title="姚世宁">姚世宁</span>
+                                        <span class="time">10:15 am</span>
+                                        <span class="attachment">
+                                            <i class="fa fa-paperclip"></i>
+                                        </span>
+                                        <span class="summary">
+                                            <span class="text">已经阅读过的邮箱标题</span>
+                                        </span>
+                                    </div>
+                                    <div class="message-item">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <i class="fa fa-star email-orange2 message-star"></i>
+                                        <span class="sender" title="姚世宁">姚世宁</span>
+                                        <span class="time">昨天</span>
+                                        <span class="summary">
+                                            <span class="text">已经阅读过的邮箱标题</span>
+                                        </span>
+                                    </div>
+                                    <div class="message-item">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <i class="fa fa-star-o email-gray message-star"></i>
+                                        <span class="sender" title="姚世宁">姚世宁</span>
+                                        <span class="time">昨天</span>
+                                        <span class="attachment">
+                                            <i class="fa fa-paperclip"></i>
+                                        </span>
+                                        <span class="summary">
+                                            <span class="badge badge-success email-tag"></span>
+                                            <span class="text">已经阅读过的邮箱标题</span>
+                                        </span>
+                                    </div>
+                                    <div class="message-item" ng-repeat="a in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                        <i class="fa fa-star-o email-gray message-star"></i>
+                                        <span class="sender" title="姚世宁">姚世宁</span>
+                                        <span class="time">4月5日</span>
+                                        <span class="summary">
+                                            <span class="text">已经阅读过的邮箱标题</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="id-message-form" class="form-horizontal col-xs-12 message-form" ng-show="active=='new'">
+                                    <div style="margin-bottom: 20px">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right" for="form-field-recipient">收件人:</label>
+
+                                            <div class="col-sm-9">
+												<span class="input-icon">
+													<input type="email" name="recipient" id="form-field-recipient" data-value="alex@doe.com" value="alex@doe.com" placeholder="收件人">
+													<i class="fa fa-user"></i>
+												</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr hr-18 dotted"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right" for="form-field-subject">主题:</label>
+
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="input-icon block col-xs-12 no-padding">
+                                                    <input maxlength="100" type="text" class="col-xs-12" name="subject" id="form-field-subject" placeholder="主题">
+                                                    <i class="fa fa-comment-o"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hr hr-18 dotted"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right">
+                                                <span class="inline space-24 hidden-480"></span>
+                                                内容:
+                                            </label>
+
+                                            <div class="col-sm-9">
+                                                <!--<div class="wysiwyg-toolbar btn-toolbar center wysiwyg-style1">
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-sm" data-edit="bold"
+                                                                              title=""
+                                                                              data-original-title="Bold (Ctrl/Cmd+B)">
+                                                            <i class="fa fa-bold"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)">
+                                                            <i class="fa fa-italic"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm" data-edit="strikethrough" title="" data-original-title="Strikethrough">
+                                                            <i class="fa fa-strikethrough"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm" data-edit="underline" title="" data-original-title="Underline">
+                                                            <i class="fa fa-underline"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-sm active" data-edit="justifyleft" title="" data-original-title="Align Left (Ctrl/Cmd+L)">
+                                                            <i class="fa fa-align-left"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm" data-edit="justifycenter" title="" data-original-title="Center (Ctrl/Cmd+E)">
+                                                            <i class="fa fa-align-center"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm" data-edit="justifyright" title="" data-original-title="Align Right (Ctrl/Cmd+R)">
+                                                            <i class="fa fa-align-right"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <div class="inline position-relative">
+                                                            <a class="btn btn-sm  dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Hyperlink">
+                                                                <i class="fa fa-link"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-caret pull-right">
+                                                                <div class="input-group">
+                                                                    <input class="form-control" placeholder="URL" type="text" data-edit="createLink">
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn btn-sm btn-primary" type="button">Add</button>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a class="btn btn-sm" data-edit="unlink" title="" data-original-title="Remove Hyperlink">
+                                                            <i class="fa fa-unlink"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-sm" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">
+                                                            <i class="fa fa-undo"></i>
+                                                        </a>
+                                                        <a class="btn btn-sm" data-edit="redo" title="" data-original-title="Redo (Ctrl/Cmd+Y)">
+                                                            <i class="fa fa-repeat"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="wysiwyg-editor" contenteditable="true" style="height: 300px"></div>-->
+                                                <textarea text-editor></textarea>
+                                                <input type="text" data-edit="inserttext" x-webkit-speech="" class="wysiwyg-speech-input" style="position: absolute; top: 0px; left: -27px;">
+                                            </div>
+                                        </div>
+                                        <div class="hr hr-18 dotted"></div>
+                                        <div class="form-group no-margin-bottom">
+                                            <label class="col-sm-3 control-label no-padding-right">附件:</label>
+
+                                            <div class="col-sm-9">
+                                                <div id="form-attachments">
+                                                    <div class="row file-input-container">
+                                                        <div class="col-sm-7">
+                                                            <div class="file-input width-90 inline">
+                                                                <input type="file" name="attachment[]" />
+                                                                <label class="file-label" data-title="选择文件">
+                                                                    <span class="file-name" data-title="没有文件 ...">
+                                                                        <i class="fa fa-upload"></i>
+                                                                    </span>
+                                                                </label>
+                                                                <a class="remove" href="#">
+                                                                    <i class="icon-remove"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="align-right">
+                                            <button id="id-add-attachment" type="button" class="btn btn-sm btn-danger">
+                                                <i class="icon-paper-clip bigger-140"></i>
+                                                添加附件
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message-footer clearfix" ng-show="active=='inbox'">
+                                <div class="pull-left">总共151封邮件</div>
+                                <div class="pull-right">翻页</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

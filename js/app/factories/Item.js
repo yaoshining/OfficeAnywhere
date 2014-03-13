@@ -7,5 +7,5 @@ define(['modules/App'] , function (app) {
         return $resource('item/:page' , {page: '@page'},{
             'update': {method: 'PUT'}
         });
-}]);
+    }]);
 });

@@ -1,32 +1,35 @@
-<div id="indicator">
-    <div class="indicator_wrapper" style="position: fixed;left: 50%;margin-left: -132px;">
-        <div id="indicatorContainer" class="indicator_container">
-            <a ng-repeat="desktop in items" class="indicator indicator_{{desktop.page}}" ng-href="" ng-click="paginate($index+1)">
-                <span class="indicator_icon indicator_icon{{desktop.page}} {{$index+1==page?'active':''}}"></span>
-            </a>
-            <a class="indicator indicator_manager" href="javascript:void(0)" ng-click="openManage()" title="打开桌面管理工具">
-            </a>
+<div ng-controller="desktopCtrl">
+    <div id="indicator">
+        <div class="indicator_wrapper">
+            <div id="indicatorContainer" class="indicator_container">
+                <a ng-repeat="desktop in items" class="indicator indicator_{{desktop.page}}" ng-href="" ng-click="paginate($index+1)">
+                    <span class="indicator_icon indicator_icon{{desktop.page}} {{$index+1==page?'active':''}}"></span>
+                </a>
+                <a class="indicator indicator_manager" ng-href="" ng-click="openManage()" title="应用盒子">
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<div style="position: relative;overflow: auto;" carousel>
+    <div style="position: relative;overflow: auto;" carousel>
 
-    <ul style="list-style: none;margin: 0;padding: 0;">
-        <li style="float: left" ng-repeat="desktop in items">
-            <div class="desktop" style="display: inline-block;">
-                <div class="shortcutPane" shortcuts>
-                    <ul ui-sortable="shortcutsSortableOptions" ng-model="desktop.shortcuts">
-                        <li ng-repeat="item in desktop.shortcuts" class="repeated-item">
-                            <div class="shortcut" shortcut="item" src="{{item.img}}" page="page"></div>
-                            <div class="shortcut-title"><span>{{item.name}}</span></div>
-                        </li>
-                    </ul>
+        <ul style="list-style: none;margin: 0;padding: 0;">
+            <li style="float: left" ng-repeat="desktop in items">
+                <div class="desktop" style="display: inline-block;">
+                    <div class="shortcutPane" shortcuts>
+                        <ul ui-sortable="shortcutsSortableOptions" ng-model="desktop.shortcuts">
+                            <li ng-repeat="item in desktop.shortcuts" class="repeated-item">
+                                <div class="shortcut" shortcut="item" src="{{item.img}}" page="page"></div>
+                                <div class="shortcut-title"><span>{{item.name}}</span></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </li>
-    </ul>
-</div>
+            </li>
+        </ul>
+    </div>
 
-<div id="desktopManager" desktop-manager style="display: none">
+    <div id="desktopManager" desktop-manager style="display: none">
 
+    </div>
+    <div id="trash" trash></div>
 </div>

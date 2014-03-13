@@ -1,4 +1,4 @@
-<div id="banner">
+<div id="banner" ng-hide="minimized">
     <div class="logo"></div>
     <div class="my-calendar" calendar>
     </div>
@@ -10,10 +10,11 @@
             <a type="button" class="btn btn-default {{menu.active?'active':''}}" ng-repeat="menu in menus" ng-href="" ng-click="newTab(menu,false)">{{ menu.name }}<span class="close-icon" title="关闭" ng-click="closeTab($event,menu)"></span></a>
         </div>
         <div style="position: absolute;right: 10px;display: inline-block;height: 20px;line-height: 20px;bottom: 10px;">
-            <i class="fa fa-expand" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer" ng-click="toggleFullScreen()"></i>
-            <i class="fa fa-refresh" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer"></i>
-            <i class="fa fa-key" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer" ng-click="logout()"></i>
-            <i class="fa fa-gear" style="font-size: 20px;color: #ffffff;margin-right: 3px;cursor: pointer"></i>
+            <i class="fa fa-expand" style="font-size: 20px;width:20px;color: #ffffff;margin-right: 25px;cursor: pointer" ng-show="supportFullScreen" ng-click="toggleFullScreen()"></i>
+            <i class="fa fa-gear" style="font-size: 20px;width:20px;color: #ffffff;margin-right: 25px;cursor: pointer"></i>
+            <i class="fa fa-key" style="font-size: 20px;width:20px;color: #ffffff;margin-right: 25px;cursor: pointer" ng-click="logout()"></i>
+            <i class="fa fa-angle-double-up" style="font-size: 24px;width:20px;color: #ffffff;margin-right: 0px;cursor: pointer" ng-click="closePane()" ng-hide="minimized"></i>
+            <i class="fa fa-angle-double-down" style="font-size: 24px;width:20px;color: #ffffff;margin-right: 0px;cursor: pointer" ng-click="openPane()" ng-show="minimized"></i>
         </div>
     </div>
     <div id="menuBar">
@@ -22,8 +23,8 @@
     </div>
     <div class="menubar-shadow"></div>
 </div>
-<div class="left_pattern"></div>
-<div class="right_pattern"></div>
+<div class="left_pattern" ng-hide="minimized"></div>
+<div class="right_pattern" ng-hide="minimized"></div>
 <div id="dropdown-1" class="dropdown dropdown-tip">
     <div class="dropdown-panel">
         <div class="user-info">

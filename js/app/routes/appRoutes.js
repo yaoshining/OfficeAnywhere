@@ -1,7 +1,7 @@
 /**
  * Created by 世宁 on 14-1-3.
  */
-define(['modules/App' , 'controllers/appCtrl','controllers/northCtrl','directives/carousel','directives/shortcuts','directives/shortcut','directives/desktopManager'] , function (app) {
+define(['modules/App' , 'controllers/appCtrl','controllers/northCtrl','directives/carousel','directives/trash','directives/shortcuts','directives/shortcut','directives/desktopManager'] , function (app) {
     "use strict";
     return app.config(['$routeProvider' ,'$logProvider', function ($routeProvider,$logProvider) {
 //        $routeProvider.when('/' , {controller: 'appCtrl' ,templateUrl: 'js/app/templates/Desktop.html'});

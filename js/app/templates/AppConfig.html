@@ -1,0 +1,15 @@
+<div class="tab-navs">
+    <ul>
+        <li ng-repeat="nav in tabnavs" ng-click="tabSelect($index)"><a ng-href=""><i class="{{nav.iconClass}}"></i>{{nav.name}}</a></li>
+    </ul>
+</div>
+<div class="tab-contents-container">
+    <div ng-repeat="nav in tabnavs" ng-show="selection == nav" ng-init="data = queryByPid(nav.id)" style="text-align: center;display: inline-block;">
+        <ul style="list-style-type: none;margin: 0;padding: 0;width: 550px;overflow: visible">
+            <li app ng-repeat="shortcut in data" style="float: left;width: 80px;margin: 15px">
+                <div class="shortcut" ng-style="{'background-image':'url({{shortcut.img}})'}"></div>
+                <div>{{shortcut.name}}</div>
+            </li>
+        </ul>
+    </div>
+</div>

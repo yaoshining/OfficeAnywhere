@@ -42,7 +42,10 @@ define(['modules/App','controllers/appCtrl','directives/togglepanel','directives
                             }
                         };
                         element.css("height","100%");
-                        element.layout(layoutSettings);
+                        var appLayout = element.layout(layoutSettings);
+                        scope.$on("layout.resize",function(e,direction,value){
+                            appLayout.sizePane(direction,value);
+                        });
 //                        $rootScope.hideMask = true;
                     }
                 }

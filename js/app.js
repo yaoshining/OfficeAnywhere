@@ -17,7 +17,8 @@ requirejs.config({
         "factories": "../app/factories",
         "templates": "../app/templates",
         "others": "../app/others",
-        "jquery": "jquery-1.8.3.min",
+        "jquery": "jquery-1.11.0.min",
+        "jquery-migrate": "jquery-migrate",
         "jquery-ui": "jquery-ui-1.9.2.custom.min",
         "fancybox": "jquery.fancybox",
         "emojiarea": "jquery.emojiarea",
@@ -69,9 +70,20 @@ requirejs.config({
         'modules/sortable': {
             deps: ['angular']
         },
+        'jquery-migrate': {
+            deps: ['jquery']
+        },
         'jquery.dropdown': {
             deps: ['jquery'],
             exports:"jQuery.fn.dropdown"
+        },
+        'jquery.contextMenu': {
+            deps: ['jquery','jquery-ui','css!style/css/jquery.contextMenu'],
+            exports:"jQuery.fn.contextMenu"
+        },
+        'jquery.scrollbar': {
+            deps: ['jquery','jquery.mousewheel','css!style/css/jquery.scrollbar'],
+            exports: "jQuery.fn.mCustomScrollbar"
         },
         'underscore': {
             exports:"_"
@@ -91,7 +103,7 @@ requirejs.config({
 requirejs(["others/console.ad","es5-shim","less!style/index","less!style/font-awesome/less/font-awesome","css!style/css/bootstrap"],function(){
     loadingPhrase.innerHTML = "正在载入js核心库...";
     setTimeout(function(){
-        requirejs(["json2","jquery","underscore"],function(){
+        requirejs(["json2","jquery","jquery-migrate","underscore"],function(){
             loadingPhrase.innerHTML = "正在载入子模块...";
             setTimeout(function(){
                 requirejs(["app/main"],function(){

@@ -1,14 +1,13 @@
 /**
  * Created by 世宁 on 14-1-8.
  */
-define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],function(app){
-    app.directive('carousel',function(Item,$timeout,$rootScope){
+define(['modules/App','unslider','services/desktopService','controllers/desktopCtrl'],function(app){
+    app.directive('carousel',function($timeout,$rootScope,desktopService){
         return {
             restrict: "A",
             link: function(scope,element){
 
-            },
-            controller: "desktopCtrl"
+            }
             ,compile: function compile(tElement,tAttrs,transclude){
                 return {
                     pre: function preLink(scope, iElement, iAttrs, controller) {
@@ -25,7 +24,7 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                                     drop: function(event, ui){
                                         var menu = ui.helper.data("menu");
                                         scope.$apply(function(){
-                                            scope.items[scope.page-1].shortcuts.push({
+                                            desktopService.addShortcut(scope.page,{
                                                 id: menu.id,
                                                 name: menu.name,
                                                 url: menu.url,
@@ -37,7 +36,7 @@ define(['modules/App','unslider','factories/Item','controllers/desktopCtrl'],fun
                                 });
                                 element.find(".shortcutPane").css("margin-top",0-element.find(".shortcutPane").height()/2+"px");
                             });
-                            element.find(".desktop").height($("#center").height());
+                            element.find(".desktop").height($("#center").height()-$("#indicator").height());
                             element.find(".shortcutPane").css("margin-top",0-element.find(".shortcutPane").height()/2+"px");
                             scope.$on("layout.center.resize",function(e,h,w){
                                 element.height(h);

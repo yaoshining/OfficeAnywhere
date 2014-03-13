@@ -1,8 +1,8 @@
 /**
  * Created by 世宁 on 14-2-25.
  */
-define(["modules/App","directives/tabs","less!style/desktopManager","jquery-ui"],function(app){
-    app.directive("desktopManager",function($log){
+define(["modules/App","directives/tabs","directives/appConfig","less!style/desktopManager","jquery-ui","factories/Item"],function(app){
+    app.directive("desktopManager",function($log,Item){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/DesktopManager.html",
@@ -36,6 +36,7 @@ define(["modules/App","directives/tabs","less!style/desktopManager","jquery-ui"]
                             return JSON.stringify(i);
                         }).join(', ');
                         $log.debug(logEntry);
+                        Item.update(itemArray);
                     }
                 };
             }
