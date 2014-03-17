@@ -84,6 +84,17 @@
     }
   }
   .ui-tabs#tabs {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    width: 100%;
+    .ui-tabs-panel {
+      position: absolute;
+      top: 40px;
+      bottom: 0;
+      width: 100%;
+      overflow: auto;
+    }
     ul.ui-tabs-nav{
       list-style: none;
       width: 100%;
@@ -230,6 +241,7 @@
       background-color: rgb(236,247,254);
       .chat-box-show {
         height: 65%;
+        overflow: auto;
       }
       .chat-box-input {
         height: 35%;

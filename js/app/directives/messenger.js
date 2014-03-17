@@ -128,9 +128,6 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                             scope.$broadcast("chatbox.show",treeNode.user);
                         }
                    }
-                   var organizations = Organizations.query(function(){
-                       console.log(organizations);
-                   });
                    var zNodes = Organizations.query(function(){
                        var t = element.find("#orgTree");
                        t = $.fn.zTree.init(t, setting, zNodes);
