@@ -1,17 +1,28 @@
 /**
  * Created by 世宁 on 14-2-20.
  */
-define(["modules/App"],function(app){
-    app.directive("messageReminder",function(){
+define(["modules/App","services/messengerService"],function(app){
+    app.directive("messageReminder",function(messengerService,$interval){
         return {
             restrict: "A",
             templateUrl: "js/app/templates/MessageReminder.html",
             replace: true,
             link: function(scope,element){
-                scope.from = {
-                  id: 2,
-                  name: "王雪栋"
-                };
+                var count = 0;
+                $interval(function(){
+                    messengerService.reminder.getRemindMessages(count++%2+1,function(remindQueue){
+                        scope.remindItem = remindQueue[0];
+                    });
+                },10000);
+//                scope.$watch(function(){
+//                    return messengerService.reminder.remindQueue;
+//                },function(newValue){
+//                    console.log(newValue);
+//                    scope.remindItem = newValue.shift();
+//                },true);
+                scope.remindItem = messengerService.latest;
+                scope.reminder = messengerService.reminder;
+                scope.showQueue = false;
                 scope.$on("messageReminder.show",function(){
                     element.slideDown(1000,function(){
 //                        $timeout(function(){
@@ -23,9 +34,10 @@ define(["modules/App"],function(app){
 //                        },4000);
                     });
                 });
-                element.click(function(){
-                    scope.$emit("chatbox.show",scope.from);
-                });
+                scope.openChatBox = function(item){
+                    console.log(item);
+                    scope.$emit("chatbox.show",item);
+                }
             }
         }
     });

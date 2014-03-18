@@ -2,7 +2,7 @@
  * Created by 世宁 on 14-2-24.
  */
 define(["modules/App","underscore","emojiarea","css!style/css/jquery.emojiarea","emojis"],function(app){
-    app.directive("chatBox",function(){
+    app.directive("chatBox",function($http){
         return {
             restrict: "A",
             link: function(scope,element){
@@ -56,10 +56,6 @@ define(["modules/App","underscore","emojiarea","css!style/css/jquery.emojiarea",
                         shadeFrame();
                     });
                 });
-                scope.close = function(box){
-                    scope.$emit("chatbox.close",box);
-//                    scope.chatBoxes.splice(_.indexOf(this),1);
-                }
 //                var $wysiwyg = element.find(".chat-box-input-area > textarea").emojiarea({
 //                    wysiwyg: true,
 //                    button: element.find(".chat-box-emotion")
@@ -86,6 +82,35 @@ define(["modules/App","underscore","emojiarea","css!style/css/jquery.emojiarea",
 //                        }
 //                    });
 //                })
+            },
+            controller: function($scope,$element){
+                $scope.scrollBarOptions = {
+                    theme:"dark-thick",
+                    mouseWheel:true,
+                    mouseWheelPixels: 300,
+                    autoHideScrollbar: true,
+                    scrollButtons:{
+                        enable:true
+                    },
+                    advanced:{
+                        updateOnContentResize: true,
+                        updateOnBrowserResize: true,
+                        autoScrollOnFocus: false
+                    }
+                }
+                $scope.close = function(box){
+                    $scope.$emit("chatbox.close",box);
+                }
+                $scope.send = function(){
+                    if($scope.message && $scope.message!=""){
+                        $http.post("data/messages/send",{receiverId: $scope.box.to.id,message: $scope.message}).success(function(){
+                            alert(1);
+                        }).error(function(){
+                                alert(2);
+                            });
+                        alert($scope.message);
+                    }
+                }
             }
         }
     });

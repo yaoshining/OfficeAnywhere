@@ -17,7 +17,12 @@
         </div>
     </div>
     <div class="chat-box-body">
-        <div class="chat-box-show">聊天记录</div>
+        <div class="chat-box-show" scroll-bar="scrollBarOptions">
+            <div ng-repeat="msg in box.messages track by $index">
+                <div style="color: blue">{{box.to.name}}  11:14:47</div>
+                <div style="padding:0 10px">{{msg}}</div>
+            </div>
+        </div>
         <div class="chat-box-input">
             <div class="chat-box-input-toolbar">
                 <ul>
@@ -44,12 +49,12 @@
                 </ul>
             </div>
             <div class="chat-box-input-area">
-                <textarea placeholder="请输入聊天信息..."></textarea>
+                <textarea placeholder="请输入聊天信息..." ng-model="message"></textarea>
             </div>
         </div>
     </div>
     <div class="chat-box-bottom">
-        <button>发送(S)</button>
+        <button ng-click="send()">发送(S)</button>
         <button ng-click="close(box)">关闭(C)</button>
     </div>
     <div id="chatEmotions">

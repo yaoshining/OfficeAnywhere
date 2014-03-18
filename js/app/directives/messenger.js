@@ -22,13 +22,12 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                });
                scope.$on("chatbox.show",function(event,to){
                     var newBox = {
-                        id: to.id,
-                        to: to,
+                        id: to.sender.id,
+                        to: to.sender,
+                        messages: to.messages,
                         show: true
                     };
-                   scope.$apply(function(){
-                       scope.chatBoxes.push(newBox);
-                   });
+                   scope.chatBoxes.push(newBox);
                });
                requirejs(['ztree.core','ztree.exedit','css!style/css/zTreeStyle','less!style/messenger','less!style/businessCard','underscore'],function(){
                    var setting = {
