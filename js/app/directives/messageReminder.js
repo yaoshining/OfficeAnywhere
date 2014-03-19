@@ -35,7 +35,6 @@ define(["modules/App","services/messengerService"],function(app){
                     });
                 });
                 scope.openChatBox = function(item){
-                    console.log(item);
                     scope.$emit("chatbox.show",item);
                 }
             }

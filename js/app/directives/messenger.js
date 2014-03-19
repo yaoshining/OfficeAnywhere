@@ -1,8 +1,8 @@
 /**
  * Created by 世宁 on 14-2-14.
  */
-define(['modules/App','directives/tabs','directives/businessCard','services/userService','directives/messageReminder','directives/chatBox','factories/Organization'],function(app){
-    app.directive('messenger',function($q,$rootScope,$compile,userService,$interval,Organizations){
+define(['modules/App','directives/tabs','directives/businessCard','services/userService','directives/messageReminder','directives/chatBox','factories/Organization','underscore','services/messengerService'],function(app){
+    app.directive('messenger',function($q,$rootScope,$compile,userService,$interval,Organizations,messengerService){
        return {
            restrict: "A",
            link: function(scope,element){
@@ -16,18 +16,12 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
 //                   },
 //                   show: true
 //               }];
-               scope.chatBoxes = [];
+               scope.chatBoxes = messengerService.chatBox.chatBoxes;
                scope.$on("chatbox.close",function(event,box){
                    scope.chatBoxes.splice(_.indexOf(scope.chatBoxes, box),1);
                });
                scope.$on("chatbox.show",function(event,to){
-                    var newBox = {
-                        id: to.sender.id,
-                        to: to.sender,
-                        messages: to.messages,
-                        show: true
-                    };
-                   scope.chatBoxes.push(newBox);
+                   messengerService.chatBox.open(to);
                });
                requirejs(['ztree.core','ztree.exedit','css!style/css/zTreeStyle','less!style/messenger','less!style/businessCard','underscore'],function(){
                    var setting = {
