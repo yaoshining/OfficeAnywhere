@@ -38,7 +38,7 @@ define(['modules/App',"underscore"] , function (app) {
             remindQueue: [],
             getRemindMessages: function(id,change){
                 var self = this;
-                $http.get("data/messages/remind/"+$rootScope.userInfo[0].guid+".do").success(function(data){
+                $http.get("data/messages/remind/"+id).success(function(data){
                     for(var i=0;i<data.length;i++){
                         var v = data[i];
                         var remindItem = _.findWhere(self.remindQueue,{id: v.senderId});
