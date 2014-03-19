@@ -118,7 +118,12 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                    }
                    function onDblClick(event, treeId, treeNode){
                         if(!treeNode.isParent){
-                            scope.$broadcast("chatbox.show",treeNode.user);
+                            scope.$broadcast("chatbox.show",{
+                                sender: {
+                                    id: treeNode.user.id,
+                                    name: treeNode.user.name
+                                }
+                            });
                         }
                    }
                    var zNodes = Organizations.query(function(){

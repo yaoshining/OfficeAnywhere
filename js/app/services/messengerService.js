@@ -9,7 +9,7 @@ define(['modules/App',"underscore"] , function (app) {
                 var newBox = {
                     id: chatBox.sender.id,
                     to: chatBox.sender,
-                    messages: _.clone(chatBox.messages),
+                    messages: chatBox.messages?_.clone(chatBox.messages):[],
                     show: true
                 };
                 this.chatBoxes.push(newBox);
