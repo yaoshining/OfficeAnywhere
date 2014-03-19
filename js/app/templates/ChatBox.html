@@ -18,8 +18,9 @@
     </div>
     <div class="chat-box-body">
         <div class="chat-box-show" scroll-bar="scrollBarOptions">
-            <div ng-repeat="msg in box.messages track by $index">
-                <div style="color: blue">{{box.to.name}}  {{msg.sendTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+            <div ng-repeat="msg in box.messages track by $index" style="margin-bottom: 10px">
+                <div ng-if="msg.type=='receive'" style="color: blue">{{box.to.name}}  {{msg.sendTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div ng-if="msg.type=='send'" style="color: #008000">{{userInfo[0].name}}  {{msg.sendTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
                 <div style="padding:0 10px">{{msg.body}}</div>
             </div>
         </div>

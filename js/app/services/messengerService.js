@@ -19,7 +19,7 @@ define(['modules/App',"underscore"] , function (app) {
                 return _.findWhere(this.chatBoxes,{id: id});
             },
             send: function(box,message){
-                var senderId = $rootScope.userInfo[0].id;
+                var senderId = $rootScope.userInfo[0].guid;
                 var receiver = box.sender;
                 console.log(box);
                 box.messages.push({
