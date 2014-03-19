@@ -1,4 +1,4 @@
-<div id="messageReminder" ng-mouseover="showQueue=true" ng-mouseleave="showQueue=false">
+<div id="messageReminder" ng-mouseover="showQueue=true" ng-mouseleave="showQueue=false" ng-show="reminder.remindQueue.length>0">
     <div class="left-slip"></div>
     <div id="userName" class="reminder-from"><i class="fa fa-user" style="margin-right: 5px"></i>{{remindItem.sender.name}}</div>
     <div class="reminder-message">发来新消息</div>

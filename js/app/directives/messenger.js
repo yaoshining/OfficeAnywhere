@@ -128,7 +128,7 @@ define(['modules/App','directives/tabs','directives/businessCard','services/user
                    scope.$apply(function(){
                        scope.cards = [];
                    });
-                   scope.$broadcast("messageReminder.show");
+//                   scope.$broadcast("messageReminder.show");
                });
            }
        }
