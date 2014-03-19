@@ -21,13 +21,12 @@ define(['modules/App',"underscore"] , function (app) {
             send: function(box,message){
                 var senderId = $rootScope.userInfo[0].guid;
                 var receiver = box.sender;
-                console.log(box);
                 box.messages.push({
                     type: "send",
                     sendTime: new Date(),
                     body: message
                 });
-                $http.post("data/messages/send",{senderId: senderId, receiverId: senderId,message: message}).success(function(){
+                $http.post("data/messages/send",{senderId: senderId, receiverId: receiver.id,message: message}).success(function(){
 
                 }).error(function(){
 
@@ -39,7 +38,7 @@ define(['modules/App',"underscore"] , function (app) {
             remindQueue: [],
             getRemindMessages: function(id,change){
                 var self = this;
-                $http.get("data/messages/remind/"+id).success(function(data){
+                $http.get("data/messages/remind/"+$rootScope.userInfo[0].guid+".do").success(function(data){
                     for(var i=0;i<data.length;i++){
                         var v = data[i];
                         var remindItem = _.findWhere(self.remindQueue,{id: v.senderId});
